@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blog & Berita</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Blog & Berita</h1>
+    <nav>
+      <a href="login.html">Login</a> |
+      <a href="register.html">Daftar</a> |
+      <button id="logoutBtn" style="display:none;">Logout</button>
+    </nav>
+  </header>
+  <main>
+    <section id="new-post-section" style="display:none;">
+      <h2>Buat Post Baru</h2>
+      <form id="postForm">
+        <input type="text" id="title" placeholder="Judul" required /><br/>
+        <textarea id="content" placeholder="Konten" required></textarea><br/>
+        <button type="submit">Kirim</button>
+      </form>
+    </section>
+    <section id="posts"></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
