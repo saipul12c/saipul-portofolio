@@ -1,3 +1,10 @@
 [
-
+  {
+    "id": "d66a2272-f438-47c4-9e72-a98a8ab9bc0b",
+    "title": "ini adalah postingan pertama",
+    "content": "ini adalah isi postingan pertama",
+    "author": "admin",
+    "createdAt": "2025-05-15T21:45:10.597Z"
+  },
+  {}
 ]

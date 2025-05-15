@@ -1,31 +1,71 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog & Berita</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/home.css"/>
 </head>
 <body>
-  <header>
-    <h1>Blog & Berita</h1>
-    <nav>
-      <a href="login.html">Login</a> |
-      <a href="register.html">Daftar</a> |
-      <button id="logoutBtn" style="display:none;">Logout</button>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Blog&Berita</h1>
+      <nav class="site-nav">
+        <a href="articles.html">Artikel</a>
+        <a href="opini.html">Opini</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="login.html" class="btn-outline">Masuk</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
   </header>
+
   <main>
-    <section id="new-post-section" style="display:none;">
-      <h2>Buat Post Baru</h2>
-      <form id="postForm">
-        <input type="text" id="title" placeholder="Judul" required /><br/>
-        <textarea id="content" placeholder="Konten" required></textarea><br/>
-        <button type="submit">Kirim</button>
-      </form>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h2>Wawasan &amp; Inspirasi<br/><span>di Ujung Jari Anda</span></h2>
+          <p>Gabung dengan ribuan pembaca, dapatkan berita terkini, analisis mendalam, dan cerita inspiratif setiap hari.</p>
+          <a href="login.html" class="btn-primary">Jelajahi Sekarang</a>
+        </div>
+      </div>
     </section>
-    <section id="posts"></section>
+
+    <!-- Latest Posts (dinamis dari server) -->
+    <section class="latest-posts">
+      <div class="container">
+        <h2>Artikel Terbaru</h2>
+        <div id="posts-container" class="posts-grid">
+          <!-- JS akan memasukkan card-card artikel di sini -->
+        </div>
+        <p id="posts-error" class="error-message" hidden>Gagal memuat artikel. Coba muat ulang halaman.</p>
+      </div>
+    </section>
+
+    <!-- Fitur Utama -->
+    <!-- ... bagian lain tetap sama ... -->
+
   </main>
-  <script src="script.js"></script>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2025 Blog &amp; Berita. All Rights Reserved.</p>
+      <ul class="social-list">
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="js/index.js"></script>
 </body>
 </html>
