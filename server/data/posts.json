@@ -1,10 +1,73 @@
 [
   {
+    "id": "8bb54709-0ea1-445b-aece-577d5a8c109e",
+    "slug": "ini-judul-posts-dari-postingan-pertama",
+    "type": "blog",
+    "title": "ini judul posts dari postingan pertama",
+    "content": "ini adalah isi postingan pertama",
+    "summary": "ini adalah isi postingan pertama",
+    "categories": [
+      "teg"
+    ],
+    "tags": [],
+    "featuredImage": null,
+    "source": null,
+    "author": "admin",
+    "status": "published",
+    "publishAt": "2025-05-15T22:30:00.000Z",
+    "isPinned": false,
+    "isDeleted": false,
+    "views": 0,
+    "likes": [],
+    "comments": [],
+    "history": [],
+    "createdAt": "2025-05-15T22:30:22.062Z",
+    "updatedAt": "2025-05-15T22:30:22.062Z"
+  },
+  {
+    "id": "36914349-afb7-409f-ba07-ee6fbe9daac3",
+    "slug": "asas",
+    "type": "blog",
+    "title": "asas",
+    "content": "asa",
+    "summary": "asa",
+    "categories": [
+      "teg"
+    ],
+    "tags": [
+      "node.js",
+      ""
+    ],
+    "featuredImage": null,
+    "source": null,
+    "author": "admin",
+    "status": "published",
+    "publishAt": "2025-05-20T22:28:00.000Z",
+    "isPinned": false,
+    "isDeleted": false,
+    "views": 0,
+    "likes": [],
+    "comments": [],
+    "history": [],
+    "createdAt": "2025-05-15T22:28:36.702Z",
+    "updatedAt": "2025-05-15T22:28:36.702Z"
+  },
+  {
+    "id": "ad16a849-f0b7-43d8-b3a5-fd3c066604d5",
+    "title": "hhjj",
+    "content": "bhbb",
+    "author": "admin",
+    "createdAt": "2025-05-15T21:52:33.873Z",
+    "isDeleted": true,
+    "deletedAt": "2025-05-15T22:29:15.744Z"
+  },
+  {
     "id": "d66a2272-f438-47c4-9e72-a98a8ab9bc0b",
     "title": "ini adalah postingan pertama",
     "content": "ini adalah isi postingan pertama",
     "author": "admin",
-    "createdAt": "2025-05-15T21:45:10.597Z"
-  },
-  {}
+    "createdAt": "2025-05-15T21:45:10.597Z",
+    "isDeleted": true,
+    "deletedAt": "2025-05-15T22:29:29.737Z"
+  }
 ]

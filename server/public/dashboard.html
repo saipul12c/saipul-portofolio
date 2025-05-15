@@ -25,6 +25,36 @@
           <label for="content">Konten:</label>
           <textarea id="content" name="content" rows="5" required></textarea>
         </div>
+        <div class="form-group">
+          <label for="type">Tipe:</label>
+          <select id="type" name="type" required>
+            <option value="blog">Blog</option>
+            <option value="news">News</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="categories">Kategori (pisahkan koma):</label>
+          <input type="text" id="categories" name="categories" placeholder="tech, lifestyle, ...">
+        </div>
+        <div class="form-group">
+          <label for="tags">Tags (pisahkan koma):</label>
+          <input type="text" id="tags" name="tags" placeholder="javascript, nodejs, ...">
+        </div>
+        <div class="form-group">
+          <label for="featuredImage">Gambar Unggulan (URL):</label>
+          <input type="url" id="featuredImage" name="featuredImage" placeholder="https://...">
+        </div>
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select id="status" name="status">
+            <option value="published">Published</option>
+            <option value="draft">Draft</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="publishAt">Jadwal Terbit:</label>
+          <input type="datetime-local" id="publishAt" name="publishAt">
+        </div>
         <button type="submit" class="btn">Kirim</button>
       </form>
       <p id="form-error" class="error-message" hidden>Gagal membuat post. Silakan coba lagi.</p>
@@ -35,7 +65,10 @@
       <div id="posts-container">
         <!-- JS akan memuat daftar post di sini -->
       </div>
-      <p id="posts-error" class="error-message" hidden>Gagal memuat post. <button id="reloadPosts" class="btn-sm">Muat Ulang</button></p>
+      <p id="posts-error" class="error-message" hidden>
+        Gagal memuat post. 
+        <button id="reloadPosts" class="btn-sm">Muat Ulang</button>
+      </p>
     </section>
   </main>
 
