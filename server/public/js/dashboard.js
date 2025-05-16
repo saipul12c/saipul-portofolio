@@ -8,7 +8,12 @@ async function api(path, method = 'GET', data) {
     opts.body = JSON.stringify(data);
   }
   const res = await fetch(`/api${path}`, opts);
-  const json = await res.json().catch(() => null);
+  let json;
+  try {
+    json = await res.json();
+  } catch {
+    json = null;
+  }
   if (!res.ok) {
     const msg = json?.error || `HTTP ${res.status}`;
     throw new Error(msg);
@@ -56,20 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const avatarImg          = document.getElementById('avatarImg');
   const usernameDisplay    = document.getElementById('usernameDisplay');
   const profileModal       = document.getElementById('profileModal');
-  const modalOverlay       = profileModal?.querySelector('.modal-overlay');
+  const modalOverlay       = profileModal.querySelector('.modal-overlay');
   const closeProfileModal  = document.getElementById('closeProfileModal');
+  const profileForm        = document.getElementById('profileForm');
+  const saveProfileBtn     = document.getElementById('saveProfileBtn');
+  const profileError       = document.getElementById('profile-error');
 
+  // Form fields di modal
   const modalAvatar        = document.getElementById('modalAvatar');
-  const modalUsername      = document.getElementById('modalUsername');
-  const modalName          = document.getElementById('modalName');
-  const modalEmail         = document.getElementById('modalEmail');
-  const modalBio           = document.getElementById('modalBio');
-  const modalPhone         = document.getElementById('modalPhone');
-  const modalAddress       = document.getElementById('modalAddress');
-  const modalTwitter       = document.getElementById('modalTwitter');
-  const modalLinkedin      = document.getElementById('modalLinkedin');
-  const modalCreatedAt     = document.getElementById('modalCreatedAt');
-  const modalUpdatedAt     = document.getElementById('modalUpdatedAt');
+  const modalNameInput     = document.getElementById('modalName');
+  const modalEmailInput    = document.getElementById('modalEmail');
+  const modalBioInput      = document.getElementById('modalBio');
+  const modalPhoneInput    = document.getElementById('modalPhone');
+  const modalAddressInput  = document.getElementById('modalAddress');
+  const modalTwitterInput  = document.getElementById('modalTwitter');
+  const modalLinkedinInput = document.getElementById('modalLinkedin');
 
   // ——— Theme toggle ———
   themeToggle?.addEventListener('click', () => {
@@ -83,12 +89,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ——— Modal open/close ———
   function openModal() {
+    profileError.hidden = true;
     profileModal.hidden = false;
   }
   function closeModal() {
     profileModal.hidden = true;
   }
-  userProfileBtn?.addEventListener('click', openModal);
+  userProfileBtn?.addEventListener('click', async () => {
+    await fetchProfile();
+    openModal();
+  });
   closeProfileModal?.addEventListener('click', closeModal);
   modalOverlay?.addEventListener('click', closeModal);
 
@@ -100,30 +110,74 @@ document.addEventListener('DOMContentLoaded', () => {
       const {
         username, name, email, bio,
         phone, address, twitter, linkedin,
-        avatarUrl, createdAt, updatedAt
+        avatarUrl
       } = res.profile;
 
       // header display
       usernameDisplay.textContent = name || username;
       if (avatarUrl) avatarImg.src = avatarUrl;
 
-      // modal display
-      modalUsername.textContent  = username;
-      modalName.textContent      = name || '-';
-      modalEmail.textContent     = email || '-';
-      modalBio.textContent       = bio || '-';
-      modalPhone.textContent     = phone || '-';
-      modalAddress.textContent   = address || '-';
-      modalTwitter.textContent   = twitter || '-';
-      modalLinkedin.textContent  = linkedin || '-';
+      // isi form modal
       if (avatarUrl) modalAvatar.src = avatarUrl;
-      // format dates
-      modalCreatedAt.textContent = new Date(createdAt).toLocaleString();
-      modalUpdatedAt.textContent = new Date(updatedAt).toLocaleString();
+      modalNameInput.value     = name || '';
+      modalEmailInput.value    = email || '';
+      modalBioInput.value      = bio || '';
+      modalPhoneInput.value    = phone || '';
+      modalAddressInput.value  = address || '';
+      modalTwitterInput.value  = twitter || '';
+      modalLinkedinInput.value = linkedin || '';
     } catch (err) {
       console.error('Fetch profile error:', err);
     }
   }
+
+  // ——— Save Profile (Update) ———
+  profileForm?.addEventListener('submit', async e => {
+    e.preventDefault();
+    profileError.hidden = true;
+
+    // Bangun payload hanya untuk field yang diisi
+    const payload = {};
+    const nameVal     = modalNameInput.value.trim();
+    const emailVal    = modalEmailInput.value.trim();
+    const bioVal      = modalBioInput.value.trim();
+    const phoneVal    = modalPhoneInput.value.trim();
+    const addressVal  = modalAddressInput.value.trim();
+    const twitterVal  = modalTwitterInput.value.trim();
+    const linkedinVal = modalLinkedinInput.value.trim();
+
+    if (nameVal)     payload.name    = nameVal;
+    if (emailVal)    payload.email   = emailVal;
+    if (bioVal)      payload.bio     = bioVal;
+    if (phoneVal)    payload.phone   = phoneVal;
+    if (addressVal)  payload.address = addressVal;
+
+    // social hanya kalau ada
+    payload.social = {};
+    if (twitterVal)  payload.social.twitter  = twitterVal;
+    if (linkedinVal) payload.social.linkedin = linkedinVal;
+    // hapus social kalau kosong
+    if (!twitterVal && !linkedinVal) delete payload.social;
+
+    try {
+      const res = await api('/auth/profile', 'PUT', payload);
+      if (handleApiErrors(res)) {
+        profileError.hidden = false;
+        profileError.textContent = res.error || 'Validasi gagal';
+        return;
+      }
+      // sukses update: refresh header & tutup modal
+      const updated = res.profile;
+      usernameDisplay.textContent = updated.name || updated.username;
+      if (updated.avatarUrl) avatarImg.src = updated.avatarUrl;
+      closeModal();
+      alert('🎉 Profile berhasil diperbarui!');
+    } catch (err) {
+      console.error('Update profile error:', err);
+      profileError.hidden = false;
+      profileError.textContent = err.message;
+    }
+  });
 
   // ——— Fetch & Render Posts ———
   async function fetchPosts() {
@@ -225,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ——— Delete Post ———
+  // ——— Delete / Restore / Bookmark / Edit Post ———
   async function deletePost(id) {
     if (!confirm('Yakin ingin memindahkan post ke trash?')) return;
     try {
@@ -237,7 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ——— Restore Post ———
   async function restorePost(id) {
     try {
       await api(`${API_BASE}/${id}/restore`, 'POST');
@@ -248,7 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ——— Bookmark Toggle ———
   async function toggleBookmark(item, id) {
     const isBookmarked = item.querySelector('.bookmark').textContent === 'Unbookmark';
     const method = isBookmarked ? 'DELETE' : 'POST';
@@ -261,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ——— Edit Post Inline ———
   function editPost(item, id) {
     const h3 = item.querySelector('h3');
     const p  = item.querySelector('p');
@@ -289,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ——— Logout ———
+  // ——— Logout & Reload ———
   logoutBtn?.addEventListener('click', async () => {
     try {
       await api('/auth/logout', 'POST');
@@ -299,11 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(err.message || 'Gagal logout, coba lagi.');
     }
   });
-
-  // ——— Reload Button ———
   reloadBtn?.addEventListener('click', fetchPosts);
 
   // ——— Init ———
-  fetchProfile();
   fetchPosts();
 });

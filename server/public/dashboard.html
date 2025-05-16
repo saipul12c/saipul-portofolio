@@ -112,21 +112,41 @@
     <div class="modal-content">
       <button id="closeProfileModal" class="modal-close">&times;</button>
       <h2>Profil Saya</h2>
-      <div class="profile-details">
-        <img id="modalAvatar" src="/images/default-avatar.png" alt="Avatar" class="avatar-large" />
-        <dl>
-          <dt>Username</dt><dd id="modalUsername">—</dd>
-          <dt>Nama Lengkap</dt><dd id="modalName">—</dd>
-          <dt>Email</dt><dd id="modalEmail">—</dd>
-          <dt>Bio</dt><dd id="modalBio">—</dd>
-          <dt>Telepon</dt><dd id="modalPhone">—</dd>
-          <dt>Alamat</dt><dd id="modalAddress">—</dd>
-          <dt>Twitter</dt><dd id="modalTwitter">—</dd>
-          <dt>LinkedIn</dt><dd id="modalLinkedin">—</dd>
-          <dt>Dibuat Pada</dt><dd id="modalCreatedAt">—</dd>
-          <dt>Terakhir Diperbarui</dt><dd id="modalUpdatedAt">—</dd>
-        </dl>
-      </div>
+      <form id="profileForm">
+        <div class="form-group">
+          <img id="modalAvatar" src="/images/default-avatar.png" alt="Avatar" class="avatar-large" />
+        </div>
+        <div class="form-group">
+          <label for="modalName">Nama Lengkap</label>
+          <input type="text" id="modalName" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="modalEmail">Email</label>
+          <input type="email" id="modalEmail" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="modalBio">Bio</label>
+          <textarea id="modalBio" name="bio" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="modalPhone">Telepon</label>
+          <input type="tel" id="modalPhone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="modalAddress">Alamat</label>
+          <input type="text" id="modalAddress" name="address">
+        </div>
+        <div class="form-group">
+          <label for="modalTwitter">Twitter (URL)</label>
+          <input type="url" id="modalTwitter" name="social[twitter]">
+        </div>
+        <div class="form-group">
+          <label for="modalLinkedin">LinkedIn (URL)</label>
+          <input type="url" id="modalLinkedin" name="social[linkedin]">
+        </div>
+        <p id="profile-error" class="error-message" hidden></p>
+        <button type="submit" id="saveProfileBtn" class="btn">Simpan Perubahan</button>
+      </form>
     </div>
   </div>
 
