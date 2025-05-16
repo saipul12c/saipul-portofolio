@@ -1,144 +1,157 @@
-📁 File: DOCUMENTATION.md
+**🚀 MySite CMS - Portfolio & News Platform**
 
-🚀 Auth App – Dokumentasi Penggunaan & Pengembangan
+**Deskripsi Proyek**
+MySite CMS adalah aplikasi web portofolio dan platform blog/news berbasis Node.js & Express, dirancang untuk kreator konten yang menginginkan sistem sederhana namun kaya fitur.
 
-Deskripsi Proyek
-Sistem autentikasi pengguna berbasis Node.js dengan Express. Proyek ini menyediakan halaman login, registrasi, dan dashboard menggunakan HTML/CSS/JS murni (tanpa canvas) serta API berbasis REST untuk autentikasi, penyimpanan data pengguna lokal (dalam file JSON), dan manajemen sesi.
+Pengguna dapat:
 
-🗂 Struktur Proyek
+* Mendaftarkan akun dan login melalui sesi aman.
+* Membuat, mengedit, dan menjadwalkan posting (blog & news) dengan tag, kategori, dan featured image.
+* Melihat daftar post, detail, archive, tag cloud, dan feed (RSS/Sitemap).
+* Mengelola trash (soft delete) dengan opsi restore.
+* Membookmark artikel favorit dan meninggalkan komentar.
 
-├── public/
-│   ├── login.html
-│   ├── register.html
-│   ├── dashboard.html
-│   ├── 404.html
-│   ├── login.css
-│   ├── styles.css
-│   └── script.js
-├── routes/
-│   ├── auth.js
-│   └── posts.js
-├── data/
-│   └── users.json (otomatis dibuat)
-├── server.js
-└── package.json
+**Mengapa Proyek Ini Diciptakan?**
+Banyak kreator membutuhkan CMS yang mudah dipelajari tanpa setup database rumit. MySite CMS hadir sebagai solusi file-based:
 
-🔧 Instalasi & Menjalankan Server
+* **Kemudahan Instalasi**: Cukup clone dan jalankan, tanpa konfigurasi DB eksternal.
+* **Pengetahuan Praktis**: Belajar Express best-practices (middleware, router modular, session).
+* **Fitur Lengkap**: CRUD, scheduling, RSS, sitemap, statistik, dan UI minimalis.
 
-1. Clone repository ini
+**Tujuan & Manfaat**
+
+1. **Pembelajaran**: Paham arsitektur modular Express dan pengelolaan file JSON.
+2. **Cepat & Ringan**: Cocok untuk prototipe blog/portfolio tanpa hosting DB.
+3. **Extendable**: Modular handler memudahkan pindah ke database SQL/NoSQL.
+
+---
+
+## 📦 Instalasi & Menjalankan
+
+1. Clone repo:
 
 ```bash
-git clone https://github.com/namaanda/auth-app.git
-cd auth-app
+git clone https://github.com/namaanda/mysite-cms.git
+cd mysite-cms
 ```
 
-2. Instal dependensi
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Jalankan server
+3. Siapkan folder data:
+
+```bash
+mkdir data
+echo "[]" > data/posts.json
+echo "[]" > data/users.json
+```
+
+4. Tambahkan variabel lingkungan di `.env`:
+
+```
+PORT=3000
+SESSION_SECRET=ubah_500karakter
+FRONTEND_ORIGIN=http://localhost:8080
+```
+
+5. Jalankan server:
 
 ```bash
 node server.js
 ```
 
-Server akan berjalan di [http://localhost:3000](http://localhost:3000)
+Akses di `http://localhost:3000`.
 
-🧠 Teknologi yang Digunakan
+---
 
-* Node.js & Express
-* express-session
-* bcryptjs (untuk hashing password)
-* body-parser & cors
-* HTML, CSS (tanpa framework), dan vanilla JS
+## 🧩 Struktur Proyek
 
-📘 Fitur Utama
-
-✅ Registrasi
-
-* Validasi username dan password
-* Konfirmasi password di sisi client
-* Hashing password sebelum disimpan
-* Cek username agar tidak duplikat
-* Simpan data user ke users.json
-
-✅ Login
-
-* Validasi kredensial terhadap data user
-* Penggunaan sesi (session) untuk autentikasi
-* Redirect ke dashboard jika berhasil login
-
-✅ Dashboard
-
-* Hanya bisa diakses jika sudah login
-* Proteksi sisi server dengan pengecekan session
-
-✅ Logout
-
-* Menghapus session dan cookie
-* Endpoint /api/auth/logout
-
-🛠 API Endpoint
-
-| Method | Endpoint           | Fungsi                    |
-| ------ | ------------------ | ------------------------- |
-| POST   | /api/auth/register | Mendaftarkan user baru    |
-| POST   | /api/auth/login    | Melakukan login           |
-| POST   | /api/auth/logout   | Logout dari sesi saat ini |
-
-Contoh Body JSON:
-
-```json
-{
-  "username": "admin",
-  "password": "123456"
-}
+```
+my-app/
+├─ data/                 # file JSON (posts.json, users.json)
+├─ public/
+│  ├─ css/
+│  │  ├─ dashboard.css
+│  │  └─ home.css
+│  ├─ js/
+│  │  ├─ dashboard.js
+│  │  └─ index.js
+│  └─ *.html            # login.html, register.html, dashboard.html, posts.html, post-detail.html
+├─ routes/
+│  ├─ auth.js           # register, login, logout
+│  └─ posts.js          # router utama posts API
+├─ routes/handlers/
+│  ├─ postsList.js      # list, detail, related, stats, RSS & sitemap
+│  ├─ postsCrud.js      # create, update, delete, restore, user posts/trash
+│  ├─ bookmarks.js      # bookmark management
+│  └─ comments.js       # comment CRUD
+├─ server.js            # setup Express, middleware, static & API routes
+└─ .env
 ```
 
-📁 File Penting
+**Modularisasi**: Router `routes/posts.js` mendelegasikan setiap endpoint ke handler masing-masing di `routes/handlers/`, memudahkan maintenance.
 
-* public/script.js
-  Menangani semua logika frontend: event submit form login & registrasi, validasi, pemanggilan API.
+---
 
-* routes/auth.js
-  Rute backend untuk login, registrasi, dan logout. Menggunakan bcryptjs dan express-session.
+## 🚀 Fitur Utama
 
-* server.js
-  Setup server utama, middleware, konfigurasi CORS, session, dan route frontend/backend.
+* **Autentikasi & Session**: Register, Login, Logout dengan hashing & express-session.
+* **CRUD Post**: Title, content, summary auto-generate, slug, categories, tags, featured image, source (news), status (draft/published), schedule.
+* **Soft Delete & Restore**: Post tidak langsung hilang, bisa dikembalikan.
+* **Bookmark**: Tandai dan kelola artikel favorit.
+* **Komentar**: Tambah/edit/hapus komentar dengan pagination.
+* **Related & Statistics**: Related posts, popular, tag cloud, archive, overview stats.
+* **RSS & Sitemap**: Otomatis generate feed dan sitemap XML.
+* **Client UI**: Vanilla HTML/CSS/JS, responsive, light/dark theme toggle.
 
-🧩 Tips untuk Pengembangan Lanjut
+---
 
-* Ganti penyimpanan users.json dengan database seperti MongoDB atau PostgreSQL.
-* Tambahkan verifikasi email saat registrasi.
-* Tambahkan CSRF protection dan rate limiting.
-* Gunakan HTTPS untuk produksi dan set secure cookie.
-* Pisahkan kode ke dalam controller/services untuk arsitektur yang lebih scalable.
+## 🛠 API Endpoints
 
-🎨 Desain & UX
+| Method | Endpoint                                | Deskripsi                               |
+| ------ | --------------------------------------- | --------------------------------------- |
+| POST   | `/api/auth/register`                    | Daftar user baru                        |
+| POST   | `/api/auth/login`                       | Login & buat session                    |
+| POST   | `/api/auth/logout`                      | Logout, hapus session                   |
+| GET    | `/api/posts`                            | Daftar & search publik                  |
+| GET    | `/api/posts/:slug`                      | Detail post by slug (increment views)   |
+| POST   | `/api/posts`                            | Buat post baru                          |
+| PUT    | `/api/posts/:id`                        | Edit post                               |
+| DELETE | `/api/posts/:id`                        | Soft-delete post                        |
+| POST   | `/api/posts/:id/restore`                | Restore from trash                      |
+| GET    | `/api/posts/user/mine/all`              | Semua post user (all status)            |
+| GET    | `/api/posts/user/trash`                 | Lihat trash user                        |
+| POST   | `/api/posts/:id/bookmark`               | Tambah bookmark                         |
+| DELETE | `/api/posts/:id/bookmark`               | Hapus bookmark                          |
+| GET    | `/api/posts/user/bookmarks`             | Daftar post yang dibookmark             |
+| POST   | `/api/posts/:id/comment`                | Tambah komentar                         |
+| GET    | `/api/posts/:id/comments`               | Daftar komentar dengan pagination       |
+| PUT    | `/api/posts/:postId/comment/:commentId` | Edit komentar                           |
+| DELETE | `/api/posts/:postId/comment/:commentId` | Hapus komentar                          |
+| GET    | `/api/posts/:id/related`                | Related posts otomatis                  |
+| GET    | `/api/posts/stats/tag-cloud`            | Tag cloud counts                        |
+| GET    | `/api/posts/stats/archive`              | Archive by month                        |
+| GET    | `/api/posts/stats/popular`              | Top N popular posts                     |
+| GET    | `/api/posts/stats/overview`             | Overview stats (posts, comments, likes) |
+| GET    | `/api/posts/feed/rss`                   | RSS feed terbaru                        |
+| GET    | `/api/posts/sitemap.xml`                | Sitemap XML                             |
 
-* Tampilan minimalis dan responsif.
-* Validasi pengguna ditampilkan dalam bentuk alert.
-* User flow: Login → Dashboard, Register → Dashboard, Logout → Login
+---
 
-🔐 Keamanan
+## 💡 Tips Pengembangan
 
-* Password tidak disimpan dalam bentuk plaintext.
-* Session cookie dilindungi dengan httpOnly dan sameSite.
-* Middleware validasi mencegah akses tidak sah ke dashboard.
+* **Database**: Ganti file JSON ke MongoDB/PostgreSQL untuk skala besar.
+* **Security**: Tambahkan CSRF, rate-limit, HTTPS + secure cookies.
+* **Testing**: Buat unit test untuk handler dan API.
+* **Arsitektur**: Pisahkan lagi ke service/controller, gunakan TypeScript.
 
-🤝 Lisensi
+---
 
-MIT License – Bebas digunakan, modifikasi, dan distribusikan.
+## 🤝 Kontribusi & Lisensi
 
-📬 Kontak
+Proyek ini open-source di bawah MIT License. Semua kontribusi (issues/PR) sangat dihargai!
 
-Jika Anda memiliki pertanyaan atau ingin berkontribusi:
-
-Nama: Nama Anda
-Email: [email@example.com](mailto:email@example.com)
-GitHub: [https://github.com/namaanda](https://github.com/namaanda)
-
-—
-
+**Contact**: Nama Anda • [email@example.com](mailto:email@example.com) • [GitHub/namaanda](https://github.com/namaanda)

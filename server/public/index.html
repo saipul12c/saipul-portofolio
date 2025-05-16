@@ -1,6 +1,6 @@
 <!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,10 +15,11 @@
     <div class="container header-inner">
       <h1 class="logo">Blog&Berita</h1>
       <nav class="site-nav">
-        <a href="articles.html">Artikel</a>
-        <a href="opini.html">Opini</a>
-        <a href="about.html">Tentang Kami</a>
-        <a href="login.html" class="btn-outline">Masuk</a>
+        <!-- link ke halaman listing posts -->
+        <a href="/posts">Artikel</a>
+        <a href="/posts?type=opini">Opini</a>
+        <a href="/about.html">Tentang Kami</a>
+        <a href="/login" class="btn-outline">Masuk</a>
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu">
         <span class="hamburger"></span>
@@ -33,7 +34,7 @@
         <div class="hero-content">
           <h2>Wawasan &amp; Inspirasi<br/><span>di Ujung Jari Anda</span></h2>
           <p>Gabung dengan ribuan pembaca, dapatkan berita terkini, analisis mendalam, dan cerita inspiratif setiap hari.</p>
-          <a href="login.html" class="btn-primary">Jelajahi Sekarang</a>
+          <a href="/posts" class="btn-primary">Jelajahi Sekarang</a>
         </div>
       </div>
     </section>
@@ -42,8 +43,21 @@
     <section class="latest-posts">
       <div class="container">
         <h2>Artikel Terbaru</h2>
+
+        <!-- Form Pencarian -->
+        <form id="search-form" class="search-form">
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Cari artikel..."
+            aria-label="Cari artikel"
+          />
+          <button type="submit" class="btn-outline btn-sm">Cari</button>
+        </form>
+
         <div id="posts-container" class="posts-grid">
-          <!-- JS akan memasukkan card-card artikel di sini -->
+          <!-- JS akan memasukkan card artikel di sini -->
         </div>
         <p id="posts-error" class="error-message" hidden>Gagal memuat artikel. Coba muat ulang halaman.</p>
       </div>

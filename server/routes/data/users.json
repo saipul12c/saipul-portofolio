@@ -1,0 +1,24 @@
+[
+  {
+    "username": "admin1",
+    "email": "admin@gmail.com",
+    "password": "$2b$12$QRZBrgSqcle2CtnSKxOeNeGFlXzMGzNO4o5BL9PoLc7.AVJV2n.bW",
+    "name": "",
+    "avatarUrl": null,
+    "bio": "",
+    "phone": "",
+    "address": "",
+    "social": {
+      "twitter": "",
+      "linkedin": ""
+    },
+    "createdAt": "2025-05-16T11:52:10.342Z",
+    "updatedAt": "2025-05-16T11:52:10.342Z",
+    "lastLogin": "2025-05-16T12:30:27.662Z",
+    "failedAttempts": 0,
+    "lockedUntil": null,
+    "isVerified": false,
+    "emailToken": "20db0833aa2dda5984074a9219b6e70e91b765d3e29ac139db5a9393b2b0690a",
+    "emailTokenExpiry": 1747482730343
+  }
+]

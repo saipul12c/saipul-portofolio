@@ -1,5 +1,32 @@
 [
   {
+    "id": "1884b8ba-f561-4783-8d22-6015ee1444f7",
+    "slug": "hahah",
+    "type": "blog",
+    "title": "hahah",
+    "content": "haha",
+    "summary": "haha",
+    "categories": [
+      "tech"
+    ],
+    "tags": [
+      "node"
+    ],
+    "featuredImage": null,
+    "source": null,
+    "author": "admin1",
+    "status": "published",
+    "publishAt": "2025-05-16T11:52:00.000Z",
+    "isPinned": false,
+    "isDeleted": false,
+    "views": 0,
+    "likes": [],
+    "comments": [],
+    "history": [],
+    "createdAt": "2025-05-16T11:52:43.891Z",
+    "updatedAt": "2025-05-16T11:52:43.891Z"
+  },
+  {
     "id": "8bb54709-0ea1-445b-aece-577d5a8c109e",
     "slug": "ini-judul-posts-dari-postingan-pertama",
     "type": "blog",
@@ -58,8 +85,7 @@
     "content": "bhbb",
     "author": "admin",
     "createdAt": "2025-05-15T21:52:33.873Z",
-    "isDeleted": true,
-    "deletedAt": "2025-05-15T22:29:15.744Z"
+    "isDeleted": false
   },
   {
     "id": "d66a2272-f438-47c4-9e72-a98a8ab9bc0b",
@@ -67,7 +93,6 @@
     "content": "ini adalah isi postingan pertama",
     "author": "admin",
     "createdAt": "2025-05-15T21:45:10.597Z",
-    "isDeleted": true,
-    "deletedAt": "2025-05-15T22:29:29.737Z"
+    "isDeleted": false
   }
 ]

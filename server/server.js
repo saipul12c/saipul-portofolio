@@ -1,13 +1,14 @@
 require('dotenv').config();
-const express = require('express');
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const path = require('path');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
+const express       = require('express');
+const session       = require('express-session');
+const cookieParser  = require('cookie-parser');
+const path          = require('path');
+const cors          = require('cors');
+const helmet        = require('helmet');
+const morgan        = require('morgan');
 
-const authRouter = require('./routes/auth');
+// Routers
+const authRouter  = require('./routes/auth');
 const postsRouter = require('./routes/posts');
 
 const app = express();
@@ -16,8 +17,10 @@ const app = express();
 app.use(helmet());
 app.use(morgan('combined'));
 
+// === Cookie Parser (optional, for read other cookies) ===
+app.use(cookieParser());
+
 // === CORS ===
-// Allow only your front-end origin to include credentials
 const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:8080';
 app.use(cors({
   origin: FRONTEND_ORIGIN,
@@ -26,46 +29,54 @@ app.use(cors({
 }));
 
 // === Body parsers ===
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// === Session management ===
+// === Session management (express-session) ===
 app.use(session({
+  name: 'sid',                         // Nama cookie session
   secret: process.env.SESSION_SECRET || 'ganti_dengan_secret_yang_rumit',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 1000 * 60 * 60, // 1 jam
+    maxAge: 1000 * 60 * 60,            // 1 jam
     httpOnly: true,
-    sameSite: 'lax',        // mitigate CSRF
-    // secure: true         // uncomment jika HTTPS
+    sameSite: 'lax',
+    // secure: true,                   // Aktifkan jika pakai HTTPS
   }
 }));
 
 // === Static files ===
-// Semua file HTML/CSS/JS/asset di public/
 app.use(express.static(path.join(__dirname, 'public')));
+
+// === Auth-check Middleware ===
+function requireLogin(req, res, next) {
+  if (!req.session.username) {
+    // Belum login → redirect ke login
+    return res.redirect('/login');
+  }
+  next();
+}
 
 // === Frontend Routes ===
 // Auth pages
-app.get(['/', '/login'], (req, res) => {
+app.get(['/', '/login'], (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
-app.get('/register', (req, res) => {
+app.get('/register', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
-app.get('/dashboard', (req, res) => {
-  if (!req.session.username) {
-    return res.redirect('/login');
-  }
+
+// Dashboard: hanya bisa diakses jika sudah login
+app.get('/dashboard', requireLogin, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
-// Blog/News pages
-app.get('/posts', (req, res) => {
+// Blog/News pages (buka untuk semua)
+app.get('/posts', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'posts.html'));
 });
-app.get('/posts/:slug', (req, res) => {
+app.get('/posts/:slug', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'post-detail.html'));
 });
 
@@ -73,23 +84,21 @@ app.get('/posts/:slug', (req, res) => {
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postsRouter);
 
-// Fallback 404 for API
-app.use('/api', (req, res) => {
+// Fallback 404 untuk API
+app.use('/api', (_req, res) => {
   res.status(404).json({ error: 'Endpoint API tidak ditemukan' });
 });
 
-// Fallback 404 for everything else (client-side router support)
+// Fallback 404 untuk halaman lain (SPA support)
 app.use((req, res) => {
-  // If the request accepts HTML, serve your SPA entrypoint
   if (req.accepts('html')) {
-    return res.sendFile(path.join(__dirname, 'public', '404.html'));
+    return res.sendFile(path.join(__dirname, 'public', 'error', '404.html'));
   }
-  // Otherwise default to plain text
   res.status(404).type('txt').send('404 - Not Found');
 });
 
 // === Error Handler ===
-app.use((err, req, res, next) => {
+app.use((err, _req, res, _next) => {
   console.error(err);
   res.status(500).json({ error: 'Internal Server Error' });
 });
