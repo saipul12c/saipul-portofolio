@@ -1,0 +1,348 @@
+{
+  "metadata": {
+    "author": "Muhammad Syaiful Mukmin",
+    "generatedAt": "2025-05-18T12:00:00+08:00",
+    "version": "2.0.0",
+    "totalFaq": 50
+  },
+  "faq": {
+    "lastUpdated": "2025-05-18T12:00:00+08:00",
+    "topics": [
+      {
+        "topicId": 1,
+        "name": "Profil & Latar Belakang",
+        "description": "Informasi umum tentang identitas, pendidikan, dan pengalaman profesional.",
+        "items": [
+          {
+            "id": 1,
+            "question": "Siapa Muhammad Syaiful Mukmin?",
+            "answer": "Pengembang perangkat lunak berpengalaman lebih dari 5 tahun, spesialis front-end dengan keahlian React.js dan Next.js.",
+            "tags": ["profil", "pengalaman"]
+          },
+          {
+            "id": 2,
+            "question": "Di mana Muhammad Syaiful menempuh pendidikan?",
+            "answer": "Sarjana Ilmu Komputer, Universitas Indonesia, lulus Cum Laude tahun 2020.",
+            "tags": ["pendidikan", "kualifikasi"]
+          },
+          {
+            "id": 3,
+            "question": "Apa visi profesional Muhammad Syaiful Mukmin?",
+            "answer": "Membangun solusi web yang responsif, accesible, dan berdampak sosial positif.",
+            "tags": ["visi", "misi"]
+          },
+          {
+            "id": 4,
+            "question": "Dalam bahasa pemrograman apa beliau mahir?",
+            "answer": "JavaScript (ES6+), TypeScript, serta dasar Python untuk scripting.",
+            "tags": ["teknologi", "bahasa-pemrograman"]
+          },
+          {
+            "id": 5,
+            "question": "Apa sertifikasi profesional yang dipegang?",
+            "answer": "Certified Scrum Master (CSM) dan AWS Certified Developer – Associate.",
+            "tags": ["sertifikasi"]
+          },
+          {
+            "id": 6,
+            "question": "Berapa lama pengalaman kerja beliau?",
+            "answer": "Lebih dari 5 tahun di industri teknologi dan startup digital.",
+            "tags": ["pengalaman"]
+          },
+          {
+            "id": 7,
+            "question": "Apakah Muhammad Syaiful menerima magang atau mentorship?",
+            "answer": "Ya, beliau membuka kesempatan mentorship untuk mahasiswa dan junior developer.",
+            "tags": ["mentorship", "karir"]
+          },
+          {
+            "id": 8,
+            "question": "Apa penghargaan atau prestasi yang pernah diraih?",
+            "answer": "Juara 1 Hackathon Nasional 2019 dan finalis Startup Weekend 2021.",
+            "tags": ["prestasi"]
+          },
+          {
+            "id": 9,
+            "question": "Apakah beliau aktif di komunitas open source?",
+            "answer": "Ya, berkontribusi pada beberapa library React dan tooling developer di GitHub.",
+            "tags": ["open-source", "komunitas"]
+          },
+          {
+            "id": 10,
+            "question": "Bagaimana cara menghubungi beliau untuk peluang karir?",
+            "answer": "Kirim email ke syaiful.mukmin@example.com atau lewat LinkedIn.",
+            "tags": ["kontak"]
+          }
+        ]
+      },
+      {
+        "topicId": 2,
+        "name": "Portofolio Proyek",
+        "description": "Detail proyek, teknologi, dan metodologi dalam portofolio yang pernah dikerjakan.",
+        "items": [
+          {
+            "id": 11,
+            "question": "Apa proyek web terbesar yang pernah dibuat?",
+            "answer": "Platform manajemen catatan rilis berbasis React, Tailwind CSS, dan Framer Motion.",
+            "tags": ["proyek", "react"]
+          },
+          {
+            "id": 12,
+            "question": "Bagaimana struktur teknologi pada proyek tersebut?",
+            "answer": "Front-end: React + Tailwind; Back-end: Node.js + Express; Database: MongoDB Atlas.",
+            "tags": ["stack", "teknologi"]
+          },
+          {
+            "id": 13,
+            "question": "Apakah ada demo untuk setiap proyek?",
+            "answer": "Ya, link demo tersedia di halaman portofolio atau staging environment.",
+            "tags": ["demo", "portofolio"]
+          },
+          {
+            "id": 14,
+            "question": "Bagaimana proses deployment dilakukan?",
+            "answer": "CI/CD via GitHub Actions dengan otomatisasi build, test, dan deploy ke Vercel/AWS.",
+            "tags": ["ci-cd", "deployment"]
+          },
+          {
+            "id": 15,
+            "question": "Bagaimana cara mengakses kode sumber?",
+            "answer": "Repositori publik di GitHub: https://github.com/syaiful-mukmin.",
+            "tags": ["github", "kode"]
+          },
+          {
+            "id": 16,
+            "question": "Apakah dokumentasi API disertakan?",
+            "answer": "Dokumentasi OpenAPI/Swagger tersedia di setiap repositori proyek.",
+            "tags": ["swagger", "api"]
+          },
+          {
+            "id": 17,
+            "question": "Bagaimana performa halaman diukur?",
+            "answer": "Menggunakan Lighthouse, PageSpeed Insights, dan monitoring real-user metrics.",
+            "tags": ["performa", "monitoring"]
+          },
+          {
+            "id": 18,
+            "question": "Pada proyek apa saja Framer Motion digunakan?",
+            "answer": "Semua proyek front-end interaktif memakai Framer Motion untuk animasi halus.",
+            "tags": ["framer-motion", "ui-ux"]
+          },
+          {
+            "id": 19,
+            "question": "Bagaimana strategi caching diterapkan?",
+            "answer": "Memanfaatkan SWR caching di client dan CDN cache-control di server.",
+            "tags": ["caching", "swr"]
+          },
+          {
+            "id": 20,
+            "question": "Proyek open source apa yang dimiliki?",
+            "answer": "Library komponen React reusable dan plugin Tailwind CSS custom di GitHub.",
+            "tags": ["open-source", "tailwind"]
+          }
+        ]
+      },
+      {
+        "topicId": 3,
+        "name": "Proses & Metodologi",
+        "description": "Pertanyaan seputar cara kerja, manajemen proyek, dan best practice pengembangan.",
+        "items": [
+          {
+            "id": 21,
+            "question": "Metodologi apa yang digunakan?",
+            "answer": "Agile Scrum dengan sprint mingguan, daily stand-up, dan retrospective.",
+            "tags": ["agile", "scrum"]
+          },
+          {
+            "id": 22,
+            "question": "Bagaimana proses estimasi waktu proyek?",
+            "answer": "Planning poker dan breakdown task ke user story untuk estimasi lebih akurat.",
+            "tags": ["estimasi", "planning-poker"]
+          },
+          {
+            "id": 23,
+            "question": "Apa alat manajemen proyek favorit?",
+            "answer": "Jira, Trello, dan Notion untuk dokumentasi internal.",
+            "tags": ["jira", "trello"]
+          },
+          {
+            "id": 24,
+            "question": "Bagaimana alur code review dilakukan?",
+            "answer": "Pull request di GitHub dengan minimum 2 reviewer dan checklist standar.",
+            "tags": ["code-review", "github"]
+          },
+          {
+            "id": 25,
+            "question": "Apa praktik unit testing yang diterapkan?",
+            "answer": "Jest dan React Testing Library untuk coverage minimal 80%.",
+            "tags": ["testing", "jest"]
+          },
+          {
+            "id": 26,
+            "question": "Bagaimana Continuous Integration diatur?",
+            "answer": "Pipeline GitHub Actions otomatis menjalankan build dan test setiap push.",
+            "tags": ["ci", "github-actions"]
+          },
+          {
+            "id": 27,
+            "question": "Bagaimana manajemen kualitas dokumentasi?",
+            "answer": "Standarisasi format Markdown, auto-linting, dan generasi dokumentasi via Docusaurus.",
+            "tags": ["docusaurus", "documentation"]
+          },
+          {
+            "id": 28,
+            "question": "Apa kebijakan branching di Git?",
+            "answer": "Git Flow: master untuk release, develop untuk integrasi, feature/* dan hotfix/*.",
+            "tags": ["git", "git-flow"]
+          },
+          {
+            "id": 29,
+            "question": "Bagaimana handle kebutuhan perubahan mendadak?",
+            "answer": "Proses change request formal dengan evaluasi risiko dan persetujuan stakeholder.",
+            "tags": ["change-management"]
+          },
+          {
+            "id": 30,
+            "question": "Apa mekanisme feedback pengguna?",
+            "answer": "Survei, sesi user testing, dan analisis data telemetry pasca-rilis.",
+            "tags": ["feedback", "usability"]
+          }
+        ]
+      },
+      {
+        "topicId": 4,
+        "name": "Keamanan & Privasi",
+        "description": "Pertanyaan terkait praktik keamanan data, otentikasi, dan kepatuhan privasi.",
+        "items": [
+          {
+            "id": 31,
+            "question": "Bagaimana kebijakan keamanan data?",
+            "answer": "Enkripsi at-rest dan in-transit, pemantauan 24/7, audit berkala sesuai OWASP.",
+            "tags": ["enkripsi", "owasp"]
+          },
+          {
+            "id": 32,
+            "question": "Otentikasi apa yang diterapkan?",
+            "answer": "JWT untuk stateless auth dan OAuth2 untuk integrasi pihak ketiga.",
+            "tags": ["jwt", "oauth2"]
+          },
+          {
+            "id": 33,
+            "question": "Bagaimana manajemen akses pengguna?",
+            "answer": "Role-Based Access Control (RBAC) dengan definisi privilege granular.",
+            "tags": ["rbac", "akses"]
+          },
+          {
+            "id": 34,
+            "question": "Apa kebijakan backup data?",
+            "answer": "Backup harian ke cold storage dan recovery drill setiap kuartal.",
+            "tags": ["backup", "recovery"]
+          },
+          {
+            "id": 35,
+            "question": "Bagaimana penanganan insiden keamanan?",
+            "answer": "SOP incident response dengan tim forensik internal dan SLA 4 jam.",
+            "tags": ["incident-response"]
+          },
+          {
+            "id": 36,
+            "question": "Bagaimana kepatuhan GDPR/PDPA?",
+            "answer": "Mematuhi regulasi privasi melalui Data Processing Agreement dan user consent.",
+            "tags": ["gdpr", "pdpa"]
+          },
+          {
+            "id": 37,
+            "question": "Apa praktis sanitasi input?",
+            "answer": "Validasi sisi server, penggunaan sanitizer library, dan parameterized query.",
+            "tags": ["sanitasi", "validasi"]
+          },
+          {
+            "id": 38,
+            "question": "Bagaimana proteksi terhadap serangan DDoS?",
+            "answer": "Integrasi Web Application Firewall (WAF) dan rate limiting.",
+            "tags": ["ddos", "waf"]
+          },
+          {
+            "id": 39,
+            "question": "Bagaimana audit keamanan dijalankan?",
+            "answer": "Penetration test eksternal dan internal setiap enam bulan sekali.",
+            "tags": ["pentest", "audit"]
+          },
+          {
+            "id": 40,
+            "question": "Apa komitmen terhadap privasi pengguna?",
+            "answer": "Menjaga kerahasiaan data dan tidak melakukan sharing tanpa izin eksplisit.",
+            "tags": ["privasi", "komitmen"]
+          }
+        ]
+      },
+      {
+        "topicId": 5,
+        "name": "Komitmen & Tanggung Jawab",
+        "description": "Pertanyaan mengenai nilai, etika, dan komitmen profesional yang dipegang.",
+        "items": [
+          {
+            "id": 41,
+            "question": "Apa komitmen utama Muhammad Syaiful terhadap kualitas?",
+            "answer": "Menjamin standar mutu dengan prosedur audit dan testing ketat setiap rilis.",
+            "tags": ["kualitas", "audit"]
+          },
+          {
+            "id": 42,
+            "question": "Bagaimana komitmen terhadap transparansi?",
+            "answer": "Laporan berkala dan dashboard publik untuk memonitor progres proyek.",
+            "tags": ["transparansi"]
+          },
+          {
+            "id": 43,
+            "question": "Apa prinsip etika kerja yang dipegang?",
+            "answer": "Integritas, keadilan, dan akuntabilitas dalam setiap tindakan dan keputusan.",
+            "tags": ["etika", "profesionalisme"]
+          },
+          {
+            "id": 44,
+            "question": "Bagaimana tanggung jawab sosial dijalankan?",
+            "answer": "Partisipasi aktif dalam komunitas tech education dan program sosial lingkungan.",
+            "tags": ["csr", "sosial"]
+          },
+          {
+            "id": 45,
+            "question": "Apa komitmen terhadap keberlanjutan lingkungan?",
+            "answer": "Mengurangi jejak karbon proyek melalui hosting hijau dan minim penggunaan kertas.",
+            "tags": ["lingkungan", "sustainability"]
+          },
+          {
+            "id": 46,
+            "question": "Bagaimana komitmen terhadap inklusi?",
+            "answer": "Menciptakan lingkungan kerja dan produk yang ramah bagi semua kalangan.",
+            "tags": ["inklusi", "diversity"]
+          },
+          {
+            "id": 47,
+            "question": "Apa komitmen terhadap kesehatan kerja?",
+            "answer": "Menjaga standar K3 dan kesejahteraan tim melalui program keseimbangan kerja-kehidupan.",
+            "tags": ["kesehatan", "k3"]
+          },
+          {
+            "id": 48,
+            "question": "Bagaimana pelaporan komitmen dijalankan?",
+            "answer": "Laporan status setiap semester kepada stakeholder dan publikasi ringkasan di website.",
+            "tags": ["pelaporan"]
+          },
+          {
+            "id": 49,
+            "question": "Apa komitmen terhadap inovasi berkelanjutan?",
+            "answer": "Melakukan riset teknologi baru dan proof of concept setiap kuartal.",
+            "tags": ["inovasi"]
+          },
+          {
+            "id": 50,
+            "question": "Bagaimana memastikan komitmen dijalankan konsisten?",
+            "answer": "Mekanisme review berkala, KPI yang terukur, dan evaluasi independen.",
+            "tags": ["kpi", "evaluasi"]
+          }
+        ]
+      }
+    ]
+  }
+}

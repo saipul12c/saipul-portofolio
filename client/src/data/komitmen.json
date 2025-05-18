@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "author": "Muhammad Syaiful Mukmin",
+    "generatedAt": "2025-05-18T10:00:00+08:00",
+    "version": "1.0.0"
+  },
+  "categories": {
+    "Keamanan Data": {
+      "description": "Upaya melindungi data pengguna dari akses, penyalahgunaan, dan kebocoran.",
+      "colorCode": "#E53E3E"
+    },
+    "Kualitas Informasi": {
+      "description": "Menjamin akurasi dan keandalan informasi sebelum disebarkan.",
+      "colorCode": "#3182CE"
+    },
+    "Layanan Pelanggan": {
+      "description": "Memberikan respons dan solusi terbaik bagi kebutuhan pengguna.",
+      "colorCode": "#38A169"
+    },
+    "Etika Kerja": {
+      "description": "Menjaga integritas, keadilan, dan profesionalisme dalam setiap tugas.",
+      "colorCode": "#D53F8C"
+    },
+    "Transparansi": {
+      "description": "Bekerja dengan keterbukaan informasi dan akuntabilitas.",
+      "colorCode": "#DD6B20"
+    },
+    "Inovasi": {
+      "description": "Mendorong ide dan solusi baru untuk peningkatan berkelanjutan.",
+      "colorCode": "#805AD5"
+    },
+    "CSR & Lingkungan": {
+      "description": "Tanggung jawab sosial dan pelestarian lingkungan hidup.",
+      "colorCode": "#38B2AC"
+    },
+    "Kesehatan & Keselamatan": {
+      "description": "Menjamin standar keselamatan dan kesehatan kerja.",
+      "colorCode": "#718096"
+    }
+  },
+  "commitments": [
+    {
+      "id": 1,
+      "statement": "Menjaga kerahasiaan dan keamanan data pengguna dengan penuh tanggung jawab sesuai standar internasional.",
+      "category": "Keamanan Data",
+      "priority": {
+        "label": "Tinggi",
+        "score": 5
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 2,
+      "statement": "Memverifikasi dan menyajikan informasi berdasarkan sumber valid dan audit internal berkala.",
+      "category": "Kualitas Informasi",
+      "priority": {
+        "label": "Tinggi",
+        "score": 5
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 3,
+      "statement": "Memberikan tanggapan dalam 24 jam kerja untuk setiap masukan, keluhan, atau permintaan bantuan.",
+      "category": "Layanan Pelanggan",
+      "priority": {
+        "label": "Tinggi",
+        "score": 5
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 4,
+      "statement": "Menegakkan kode etik dan nilai-nilai perusahaan dalam setiap keputusan dan interaksi profesional.",
+      "category": "Etika Kerja",
+      "priority": {
+        "label": "Sedang",
+        "score": 4
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 5,
+      "statement": "Mematuhi seluruh peraturan perundang-undangan serta kebijakan internal tanpa pengecualian.",
+      "category": "Etika Kerja",
+      "priority": {
+        "label": "Tinggi",
+        "score": 5
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 6,
+      "statement": "Melakukan pelatihan dan sertifikasi tahunan untuk peningkatan kompetensi profesional.",
+      "category": "Inovasi",
+      "priority": {
+        "label": "Sedang",
+        "score": 3
+      },
+      "status": "Direncanakan"
+    },
+    {
+      "id": 7,
+      "statement": "Menjaga transparansi dalam laporan keuangan dan operasional melalui dashboard publik.",
+      "category": "Transparansi",
+      "priority": {
+        "label": "Sedang",
+        "score": 4
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 8,
+      "statement": "Mengimplementasikan sistem umpan balik berkala untuk evaluasi layanan pelanggan.",
+      "category": "Layanan Pelanggan",
+      "priority": {
+        "label": "Sedang",
+        "score": 4
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 9,
+      "statement": "Menghargai dan mempromosikan keberagaman budaya, gender, dan pemikiran di lingkungan kerja.",
+      "category": "Etika Kerja",
+      "priority": {
+        "label": "Sedang",
+        "score": 3
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 10,
+      "statement": "Melakukan inisiatif hijau dengan pengurangan penggunaan kertas dan limbah elektronik.",
+      "category": "CSR & Lingkungan",
+      "priority": {
+        "label": "Rendah",
+        "score": 2
+      },
+      "status": "Berjalan"
+    },
+    {
+      "id": 11,
+      "statement": "Menjalin kemitraan strategis untuk penelitian dan pengembangan produk inovatif.",
+      "category": "Inovasi",
+      "priority": {
+        "label": "Sedang",
+        "score": 4
+      },
+      "status": "Direncanakan"
+    },
+    {
+      "id": 12,
+      "statement": "Mengoptimalkan manajemen waktu dan sumber daya lewat penggunaan alat kolaborasi digital.",
+      "category": "Transparansi",
+      "priority": {
+        "label": "Rendah",
+        "score": 2
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 13,
+      "statement": "Melaksanakan audit kualitas produk dan layanan minimal setiap kuartal.",
+      "category": "Kualitas Informasi",
+      "priority": {
+        "label": "Tinggi",
+        "score": 5
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 14,
+      "statement": "Berpartisipasi dalam program sosial dan lingkungan lokal secara rutin.",
+      "category": "CSR & Lingkungan",
+      "priority": {
+        "label": "Rendah",
+        "score": 2
+      },
+      "status": "Berjalan"
+    },
+    {
+      "id": 15,
+      "statement": "Menerapkan protokol kesehatan dan keselamatan kerja terbaru sesuai standar internasional.",
+      "category": "Kesehatan & Keselamatan",
+      "priority": {
+        "label": "Tinggi",
+        "score": 5
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 16,
+      "statement": "Mengadakan rapat tim mingguan untuk memperkuat kerjasama dan koordinasi.",
+      "category": "Etika Kerja",
+      "priority": {
+        "label": "Sedang",
+        "score": 3
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 17,
+      "statement": "Menegakkan prinsip keadilan, kesetaraan, dan inklusi di semua jenjang organisasi.",
+      "category": "Etika Kerja",
+      "priority": {
+        "label": "Sedang",
+        "score": 4
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 18,
+      "statement": "Melaporkan kemajuan komitmen ini kepada pemangku kepentingan setiap semester.",
+      "category": "Transparansi",
+      "priority": {
+        "label": "Sedang",
+        "score": 4
+      },
+      "status": "Direncanakan"
+    },
+    {
+      "id": 19,
+      "statement": "Memelihara reputasi profesional melalui konsistensi sikap dan akuntabilitas.",
+      "category": "Etika Kerja",
+      "priority": {
+        "label": "Tinggi",
+        "score": 5
+      },
+      "status": "Aktif"
+    },
+    {
+      "id": 20,
+      "statement": "Terus berinovasi dan beradaptasi untuk meningkatkan efisiensi operasional.",
+      "category": "Inovasi",
+      "priority": {
+        "label": "Sedang",
+        "score": 4
+      },
+      "status": "Aktif"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "history": [
+    {
+      "version": "0.0.0",
+      "releaseDate": "2025-05-16T08:30:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "✅ Setup awal proyek menggunakan Vite + React + Tailwind CSS",
+        "✅ Inisialisasi struktur folder: components, pages, data, utils, error",
+        "✅ Implementasi routing dasar menggunakan React Router v6",
+        "✅ Pembuatan halaman statis awal: Home, About, Skills, Sertifikat, Blog, Kontak",
+        "✅ Integrasi Tailwind CSS untuk styling utility-first",
+        "✅ Konfigurasi dark mode manual melalui Tailwind (\\\"darkMode: 'class'\\\")",
+        "✅ Penambahan data statis (JSON) untuk konten halaman: FAQ, Komitmen, ReleaseNotes",
+        "✅ Implementasi HelpWidget awal: tombol '?' + panel info rilis",
+        "✅ Penambahan file `theme.js` untuk kontrol mode gelap/terang secara global",
+        "✅ Penambahan komponen Navbar dan Footer responsive"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "releaseDate": "2025-05-18T00:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "✅ Rilis perdana versi stabil 1.0.0 — Siap digunakan & ditampilkan publik",
+        "✅ Refactor total HelpWidget agar lebih responsif dan minimalis",
+        "✅ Tombol '?' diperkecil, tetap fixed di kanan bawah semua layar",
+        "✅ Popup muncul ke samping tombol, tidak menutupi tombol seperti versi awal",
+        "✅ 'Catatan Rilis' tampil sebagai header jelas, diikuti 'Versi' dan 'Diperbarui' dengan gaya netral",
+        "✅ Penambahan link: FAQ, Komitmen, dan halaman baru AiVersion.jsx",
+        "✅ Fallback jika port 7000 tidak tersedia — muncul status offline + pesan humoris",
+        "✅ Live Chat bisa dibuka & ditutup, dengan input yang disable jika offline",
+        "✅ Penambahan validasi klik luar (onClickOutside) agar widget menutup otomatis",
+        "✅ Komponen AiVersion menampilkan metadata versi AI secara rinci (JSON-driven)",
+        "✅ Desain AiVersion mendukung dark/light mode, responsif di semua ukuran layar",
+        "✅ Struktur data `aiVersion.json` dan `releaseNotes.json` diperluas dan distandarisasi",
+        "✅ README.md diperbarui dengan dokumentasi rilis, struktur, dan changelog",
+        "✅ Tambahan styling estetik untuk panel widget, tombol, dan elemen input"
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "releaseDate": "2025-05-18T10:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "✨ Tambah fitur mode siang/malam pada ReleaseNotes.jsx menggunakan initTheme() & toggleTheme()",
+        "🔍 Implementasi pencarian versi, penulis, dan catatan di halaman Catatan Rilis",
+        "📐 Desain responsif dengan max-w-4xl, kartu rounded-xl, dan palet netral modern"
+      ]
+    },
+    {
+      "version": "1.2.0",
+      "releaseDate": "2025-05-18T12:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "🗂️ Update Komitmen.jsx: filter kategori, pencarian, sorting prioritas, badge status, animasi hover, ikon lucide-react",
+        "❓ Update FAQ.jsx: pencarian dinamis, collapsible dengan AnimatePresence, ikon FiPlus/FiMinus, warna tag variatif",
+        "🌐 Desain responsif dan minimalis, kartu rounded-2xl dengan shadow-md, dukungan mode terang/gelap"
+      ]
+    }
+  ]
+}
