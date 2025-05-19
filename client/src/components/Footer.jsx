@@ -1,9 +1,32 @@
 // src/components/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiTwitter, FiGithub, FiLinkedin } from 'react-icons/fi';
+import {
+  FiTwitter,
+  FiGithub,
+  FiLinkedin,
+  FiInstagram,
+  FiFacebook,
+  FiYoutube,
+} from 'react-icons/fi';
 
 export default function Footer() {
+  const quickLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
+    { to: '/skills', label: 'Skills' },
+    { to: '/sertifikat', label: 'Sertifikat' },
+    { to: '/blog', label: 'Blog' },
+    { to: '/kontak', label: 'Hubungi Admin' },
+    { to: '/release-notes', label: 'Release Notes' },
+    { to: '/faq', label: 'FAQ' },
+    { to: '/komitmen', label: 'Komitmen' },
+    { to: '/ai-version', label: 'AI Version' },
+    { to: '/proyek', label: 'Proyek', dev: true },
+    { to: '/pendidikan', label: 'Pendidikan', dev: true },
+    { to: '/testimoni', label: 'Testimoni', dev: true },
+  ];
+
   return (
     <footer className="bg-gradient-to-r from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-700 dark:text-gray-300">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -12,33 +35,38 @@ export default function Footer() {
           <h2 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">
             Muhammad Syaiful Mukmin
           </h2>
-          <p className="text-sm">
-            Mewujudkan ide kreatif menjadi produk digital yang memukau dan fungsional.
-          </p>
+          <div className="text-sm space-y-2">
+            <p>
+              Halo! Saya Muhammad Syaiful Mukmin, pengembang perangkat lunak yang hobinya mengubah kopi menjadi baris kode yang rapi dan terpercaya. Dengan lebih dari lima tahun pengalaman menaklukkan tantangan front-end, saya selalu berupaya membuat antarmuka semenarik filter kopi favorit Anda.
+            </p>
+            <p>
+              Saat tidak sibuk menjelajah dunia digital, Anda mungkin menemukan saya bermain futsal atau menulis blog sambil menikmati es teh. Saya percaya kerja keras dipadu sedikit humor adalah resep sempurna untuk solusi profesional yang tetap menghibur.
+            </p>
+          </div>
         </div>
 
         {/* Quick Links */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2">
-            {[
-              { to: '/', label: 'Home' },
-              { to: '/about', label: 'About' },
-              { to: '/skills', label: 'Skills' },
-              { to: '/sertifikat', label: 'Sertifikat' },
-              { to: '/blog', label: 'Blog' },
-              { to: '/kontak', label: 'Hubungi Admin' },
-            ].map(({ to, label }) => (
-              <li key={to}>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            {quickLinks.map(({ to, label, dev }) => (
+              <div key={to} className="relative group">
                 <Link
                   to={to}
-                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+                  className={`block py-1 hover:text-indigo-600 dark:hover:text-indigo-400 transition ${
+                    dev ? 'opacity-80 hover:opacity-100' : ''
+                  }`}
                 >
                   {label}
                 </Link>
-              </li>
+                {dev && (
+                  <div className="absolute left-0 top-full mt-1 w-48 bg-black text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    Halaman ini sedang dalam perkembangan dan peningkatan
+                  </div>
+                )}
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* Social Media */}
@@ -72,6 +100,33 @@ export default function Footer() {
             >
               <FiLinkedin className="h-6 w-6 text-gray-600 dark:text-gray-200 hover:text-white" />
             </a>
+            <a
+              href="https://instagram.com/username"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-indigo-500 dark:hover:bg-indigo-400 transition-transform transform hover:-translate-y-1"
+            >
+              <FiInstagram className="h-6 w-6 text-gray-600 dark:text-gray-200 hover:text-white" />
+            </a>
+            <a
+              href="https://facebook.com/username"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-indigo-500 dark:hover:bg-indigo-400 transition-transform transform hover:-translate-y-1"
+            >
+              <FiFacebook className="h-6 w-6 text-gray-600 dark:text-gray-200 hover:text-white" />
+            </a>
+            <a
+              href="https://youtube.com/username"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-indigo-500 dark:hover:bg-indigo-400 transition-transform transform hover:-translate-y-1"
+            >
+              <FiYoutube className="h-6 w-6 text-gray-600 dark:text-gray-200 hover:text-white" />
+            </a>
           </div>
         </div>
       </div>
@@ -79,10 +134,10 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-gray-200 dark:border-gray-700 mt-8">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-sm">
-          <p>© {new Date().getFullYear()} Muhamamd Syaiful Mukmin. All rights reserved.</p>
-          <p className="mt-2 sm:mt-0">Made with ❤️ by MyBrand Team</p>
+          <p>© {new Date().getFullYear()} Muhammad Syaiful Mukmin. All rights reserved.</p>
+          <p className="mt-2 sm:mt-0">Made with ❤️ by Saipul AI</p>
         </div>
       </div>
     </footer>
-);
+  );
 }

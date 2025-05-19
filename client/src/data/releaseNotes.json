@@ -10,7 +10,7 @@
         "✅ Implementasi routing dasar menggunakan React Router v6",
         "✅ Pembuatan halaman statis awal: Home, About, Skills, Sertifikat, Blog, Kontak",
         "✅ Integrasi Tailwind CSS untuk styling utility-first",
-        "✅ Konfigurasi dark mode manual melalui Tailwind (\\\"darkMode: 'class'\\\")",
+        "✅ Konfigurasi dark mode manual melalui Tailwind (\"darkMode: 'class'\")",
         "✅ Penambahan data statis (JSON) untuk konten halaman: FAQ, Komitmen, ReleaseNotes",
         "✅ Implementasi HelpWidget awal: tombol '?' + panel info rilis",
         "✅ Penambahan file `theme.js` untuk kontrol mode gelap/terang secara global",
@@ -50,12 +50,64 @@
     },
     {
       "version": "1.2.0",
-      "releaseDate": "2025-05-18T12:00:00.000Z",
+      "releaseDate": "2025-05-17T12:00:00.000Z",
       "author": "Muhammad Syaiful Mukmin",
       "notes": [
         "🗂️ Update Komitmen.jsx: filter kategori, pencarian, sorting prioritas, badge status, animasi hover, ikon lucide-react",
         "❓ Update FAQ.jsx: pencarian dinamis, collapsible dengan AnimatePresence, ikon FiPlus/FiMinus, warna tag variatif",
         "🌐 Desain responsif dan minimalis, kartu rounded-2xl dengan shadow-md, dukungan mode terang/gelap"
+      ]
+    },
+    {
+      "version": "1.3.0",
+      "releaseDate": "2025-05-18T14:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "🎨 About.jsx: hapus tim, personal branding kuat, tambahkan segmen 'Mengapa Memilih Saya', visi & misi pribadi, desain estetik responsif tanpa canvas",
+        "✍️ Skills.jsx: deskripsi tiap skill personal & humoris, warna tag unik, level skill, dan teks 'didapatkan 1 tahun lalu'",
+        "🔍 Sertifikat.jsx: fitur pencarian judul/tag, detail penerbit, tanggal, deskripsi lengkap, link sertifikat asli, dan desain kartu & modal profesional",
+        "📝 KontakAdmin.jsx: hapus loading skeleton, form selalu tampil, tampilan korporat, header branding, dan modal konfirmasi terstruktur"
+      ]
+    },
+    {
+      "version": "1.3.1",
+      "releaseDate": "2025-05-18T16:30:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "🆕 Tambah halaman Proyek.jsx: daftar proyek dari file json eksternal, tampilan kartu modern & responsif",
+        "🔍 detail-proyek.jsx: halaman dinamis berdasarkan slug judul proyek, ambil data dari file proyek.json",
+        "📁 Tambah file proyek.json untuk menyimpan semua data proyek secara terpusat (id, title, description, imageUrl, details)",
+        "🎯 Gunakan framer-motion untuk animasi ringan, slug generator dinamis, dan fallback 'proyek tidak ditemukan'",
+        "💡 Desain tetap ringan, konsisten dengan gaya personal branding tanpa penggunaan canvas"
+      ]
+    },
+    {
+      "version": "1.3.2",
+      "releaseDate": "2025-05-18T18:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "🛠️ Tambah file `src/utils/RouteController.jsx` untuk kontrol dinamis routing (lock/unlock) dengan Context API",
+        "🔐 Implementasi `GuardedRoute` untuk membungkus routes yang bisa dikunci dan diarahkan ke halaman `/pengembangan` saat terkunci",
+        "🚀 Update `src/App.jsx`: bungkus `<Routes>` dalam `RouteControllerProvider`, ganti route proyek/pendidikan/detail-proyek/testimoni menjadi `<GuardedRoute>`",
+        "🎨 Buat `RouteControllerUI`: panel admin estetik responsif (TailwindCSS, grid 1-3 kolom, kartu rounded-2xl, shadow, hover effect) untuk mengunci/membuka route dan atur durasi lock (ms)",
+        "📑 Update `components/Navbar.jsx`: tambahkan link `/route-control` untuk mengakses panel kontrol route",
+        "✅ Tambah `PengembanganWithUnlock` di App untuk auto-unlock semua route under development setelah durasi habis",
+        "🔄 Semua route lama sudah tercakup—tidak ada path yang terlewatkan dalam migrasi ke sistem kontrol baru"
+      ]
+    },
+    {
+      "version": "1.3.3",
+      "releaseDate": "2025-05-19T00:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "🔧 GuardedRoute kini menerima `children` bukan `element` untuk konsistensi rendering",
+        "🔄 `RouteController` ditingkatkan dengan `useCallback` pada handler untuk mencegah lint warnings",
+        "🚦 Semua `GuardedRoute` di `App.jsx` diperbarui untuk menggunakan prop `children`",
+        "🎛️ `Pengembangan.jsx` diperbaiki: countdown menggunakan `useCallback`, progress bar akurat, cleanup timer di `useEffect`",
+        "⭐ `Testimoni.jsx`: ganti ikon `StarOutline` menjadi `StarOff`, perbaiki renderStars untuk bintang kosong",
+        "🎓 `pendidikan.jsx`: semua handler dibungkus `useCallback`, perbaiki key & alt pada media, struktur modal konsisten",
+        "📦 `Proyek.jsx`: perbaiki `<Link to>` menggunakan `react-router-dom`, tautan ke `/proyek/[slug]`",
+        "📂 `detail-proyek.jsx`: ganti `useRouter()` ke `useParams()` dan `useNavigate()`, tambahkan tombol kembali dan animasi masuk"
       ]
     }
   ]

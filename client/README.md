@@ -8,48 +8,55 @@
 
 ## 📝 Changelog
 
-### Versi 1.1.0 (2025-05-18)
+### Versi 1.3.3 (2025-05-19)
 
-* **aiVersion.json**
+Memperbaiki dan menyelaraskan semua komponen sesuai arsitektur baru `RouteController`, routing dinamis, dan konsistensi UI/UX.
 
-  * Bump ke `1.1.0`
-  * Tambah metadata lengkap: `releaseDate`, `author`, `notes` (newFeatures, improvements, bugFixes), `compatibility`, `knownIssues`.
+#### 🔹 `RouteController.jsx`
 
-* **HelpWidget.jsx**
+* **GuardedRoute menerima `children`** bukan prop `element`, sehingga rute terlindungi dapat merender konten anak langsung.
+* Menambahkan logika `useCallback` pada handler untuk mencegah peringatan lint.
+* Menyinkronkan API: `lockRoutes`, `unlockRoutes`, dan `allowAccessWithKey` tetap bekerja dengan `Set` dan `Map`.
+* `RouteControllerUI` tetap berfungsi sebagai panel admin, dengan state `durations` yang diinisialisasi berdasarkan `availableRoutes`.
 
-  * Tombol “?” diperkecil (8×8), posisinya bottom-right.
-  * Popup panel muncul di samping tombol, tanpa menutupi.
-  * Link “Lihat Rilis” dipisah, diikuti oleh `Versi` & `Diperbarui` dengan teks kecil.
-  * Tambah link ke `/ai-version`.
-  * Deteksi port 7000 tiap 30 detik; jika mati, tampilkan pesan humor.
-  * Mode terang/gelap otomatis via `initTheme()`.
+#### 🔹 `App.jsx`
 
-* **AiVersion.jsx**
+* Membungkus seluruh aplikasi dengan `<RouteControllerProvider>`.
+* Pindahkan inisialisasi tema ke dalam `useEffect` di `AppContent`.
+* Konsisten menggunakan `<GuardedRoute>` dengan prop `children` untuk rute yang terkunci (`/proyek`, `/pendidikan`, `/testimoni`, dll.).
+* Tambahkan `PengembanganWithUnlock` untuk memicu `unlockRoutes` saat selesai, menggantikan direct callback ke komponen `Pengembangan`.
 
-  * Komponen baru menampilkan data `aiVersion.json` terstruktur.
-  * Desain responsif: header gradient, grid, kartu shadow.
-  * Konsisten dengan `dark:` Tailwind.
+#### 🔹 `pengembangan.jsx`
 
-### Versi 1.2.0 (2025-05-18)
+* Pindahkan `handleFinishAndRedirect` ke `useCallback` dengan dependency `[onFinish, navigate, location.search]`.
+* Tambahkan `secondsLeft` guard (`Math.max`) agar tidak negatif.
+* Sesuaikan progress bar untuk menghitung ulang dengan benar dan transisi 1 detik.
+* Tambahkan timer cleanup (interval + timeout) di `useEffect`.
 
-* **ReleaseNotes.jsx**
+#### 🔹 `Testimoni.jsx`
 
-  * Mode siang/malam: `initTheme()` & `toggleTheme`.
-  * Pencarian versi, author, dan catatan.
-  * Layout responsif (`max-w-4xl`), kartu modern.
-* **Komitmen.jsx**
+* Ganti ikon outline (`Star as StarOutline`) menjadi `StarOff` untuk bintang kosong.
+* Konsisten menggunakan `Star`, `StarHalf`, dan `StarOff` di fungsi `renderStars`.
+* Pertahankan tampilan rata‑rata rating dengan `useMemo` dan animasi `framer-motion`.
 
-  * Tampilkan data `komitmen.json` sebagai kartu interaktif.
-  * Fitur pencarian & filter kategori.
-  * Sorting prioritas, badge status berwarna, Framer Motion hover.
-  * Ikon search, filter, toggle tema (`lucide-react`).
-* **FAQ.jsx**
+#### 🔹 `pendidikan.jsx`
 
-  * Pencarian dinamis memfilter pertanyaan, jawaban, tag.
-  * Collapsible FAQ dengan animasi `AnimatePresence`.
-  * Ikon expand/collapse (`react-icons` FiPlus/FiMinus).
-  * Warna tag variatif kompatibel mode terang/gelap.
-  * Desain responsif, kartu minimalis dengan hover.
+* Bungkus semua handler (`prev`, `next`, `goTo`, `handleOpen`, `handleClose`) dengan `useCallback`.
+* Perbaiki `key` dan `alt` pada elemen media untuk aksesibilitas.
+* Pertahankan struktur `AnimatePresence` + `motion` untuk modal dan carousel.
+
+#### 🔹 `Proyek.jsx`
+
+* Ubah `<Link href="…">` menjadi `<Link to="…">` sesuai `react-router-dom`.
+* Normalisasi path: tautan ke `/proyek/[slug]` (bukan `/A/detail-proyek/[slug]`).
+* Gunakan `whileHover` & `whileTap` dari `framer-motion` untuk efek interaktif.
+
+#### 🔹 `detail-proyek.jsx`
+
+* Ganti penggunaan `useRouter()` menjadi `useParams()` & `useNavigate()` dari `react-router-dom`.
+* Tangkap `slug` dari URL (`/proyek/:slug`) dan cari data di `proyek.json`.
+* Tampilkan tombol “← Kembali” dengan `navigate(-1)`.
+* Tambahkan animasi masuk lembut dengan `motion.section` dan offset `y`.
 
 ---
 

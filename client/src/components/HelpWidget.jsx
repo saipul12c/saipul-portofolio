@@ -51,13 +51,18 @@ const HelpWidget = () => {
     return () => document.removeEventListener('mousedown', onClick);
   }, []);
 
-  // Validasi tanggal sebelum format
-  const releaseDate = new Date(releaseNotes.updatedAt);
+  // Ambil entry rilis terbaru dari JSON
+  const history = Array.isArray(releaseNotes.history) ? releaseNotes.history : [];
+  const latestRelease = history[history.length - 1] || {};
+  const releaseVersion = latestRelease.version || '-';
+  const releaseDateStr = latestRelease.releaseDate || '';
+  const releaseDate = new Date(releaseDateStr);
   const isReleaseDateValid = !isNaN(releaseDate);
   const timeAgo = isReleaseDateValid
     ? formatDistanceToNow(releaseDate, { addSuffix: true })
     : 'Tanggal tidak tersedia';
 
+  // Validasi tanggal AI version tetap sama
   const aiDate = new Date(aiVersion.updatedAt);
   const isAiDateValid = !isNaN(aiDate);
   const aiTimeAgo = isAiDateValid
@@ -77,10 +82,10 @@ const HelpWidget = () => {
             {/* Konten */}
             <div className="p-4 space-y-2 text-sm">
               <a href="/release-notes" className="block font-medium hover:underline">Lihat Rilis</a>
-              {/* Versi & updated dibawah Lihat Rilis */}
+              {/* Versi & updated di bawah Lihat Rilis */}
               <div className="pl-2 space-y-1">
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">Versi: {releaseNotes.version}</p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">Diperbarui: {timeAgo}</p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">Versi: {releaseVersion}</p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400">Dirilis: {timeAgo}</p>
               </div>
               <a href="/faq" className="block hover:underline">FAQ</a>
               <a href="/komitmen" className="block hover:underline">Komitmen</a>

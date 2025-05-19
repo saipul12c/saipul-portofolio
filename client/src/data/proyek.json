@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Sistem Informasi Akademik",
+    "description": "Platform web untuk manajemen nilai dan presensi mahasiswa.",
+    "imageUrl": "/images/siakademik.png",
+    "details": "Sistem ini membantu pengelolaan akademik seperti nilai, presensi, dan jadwal perkuliahan."
+  },
+  {
+    "id": 2,
+    "title": "E-Commerce Fashion",
+    "description": "Aplikasi belanja online dengan fitur keranjang dan pembayaran.",
+    "imageUrl": "/images/ecommerce.png",
+    "details": "Platform ini menyediakan katalog produk fashion dan sistem checkout dengan integrasi pembayaran."
+  },
+  {
+    "id": 3,
+    "title": "Blog Pribadi",
+    "description": "Website blog statis dengan markdown dan Next.js.",
+    "imageUrl": "/images/blog.png",
+    "details": "Blog ini digunakan untuk menulis artikel pribadi dengan dukungan format markdown."
+  }
+]

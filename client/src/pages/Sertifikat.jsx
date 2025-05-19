@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// src/pages/Sertifikat.jsx
+import React, { useState, useEffect, useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,7 +12,12 @@ const certificates = [
     id: 1,
     title: 'React Fundamentals',
     info: 'Menguasai dasar React, hooks, dan state management.',
+    issuer: 'Udemy',
+    date: '2023-06-15',
+    detail:
+      'Sertifikat ini mencakup pembuatan komponen, pengelolaan state dengan Hooks, dan optimisasi performa React. Anda akan mampu merancang SPA yang modular dan scalable.',
     tags: ['React', 'Hooks', 'Frontend'],
+    link: 'https://www.udemy.com/certificate/react-fundamentals',
     images: [
       'https://placehold.co/800x600/EEE/31343C?text=React+1',
       'https://placehold.co/800x600/EEE/31343C?text=React+2',
@@ -22,12 +28,18 @@ const certificates = [
     id: 2,
     title: 'Node.js Mastery',
     info: 'Server-side JS dan RESTful API.',
+    issuer: 'Coursera',
+    date: '2023-08-20',
+    detail:
+      'Pelatihan ini menuntun Anda menulis server dengan Express, membuat endpoint RESTful, dan memahami arsitektur non-blocking I/O di Node.js.',
     tags: ['Node.js', 'Backend', 'API'],
+    link: 'https://www.coursera.org/certificate/nodejs-mastery',
     images: [
       'https://placehold.co/800x600/EEE/31343C?text=Node+1',
       'https://placehold.co/800x600/EEE/31343C?text=Node+2',
     ],
   },
+  // ... tambah sertifikat lainnya di sini dengan struktur yang sama
 ];
 
 function CertificateCard({ cert, onClick }) {
@@ -47,15 +59,21 @@ function CertificateCard({ cert, onClick }) {
           Lihat
         </button>
       </div>
+      <div className="p-4 bg-white dark:bg-gray-800">
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+          {cert.title}
+        </h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {cert.issuer} — {new Date(cert.date).toLocaleDateString('id')}
+        </p>
+      </div>
     </div>
   );
 }
 
 function CertificateModal({ cert, onClose }) {
   useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
+    const handleKey = (e) => e.key === 'Escape' && onClose();
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [onClose]);
@@ -94,7 +112,11 @@ function CertificateModal({ cert, onClose }) {
               {cert.title}
             </h2>
 
-            <div className="flex flex-wrap justify-center mb-4">
+            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+              {cert.issuer} — {new Date(cert.date).toLocaleDateString('id')}
+            </p>
+
+            <div className="flex flex-wrap justify-center mb-4 gap-2">
               {cert.tags.map((tag) => (
                 <span
                   key={tag}
@@ -131,7 +153,15 @@ function CertificateModal({ cert, onClose }) {
               </p>
             )}
 
-            <p className="text-center text-gray-600 dark:text-gray-300">{cert.info}</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">{cert.detail}</p>
+            <a
+              href={cert.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center text-indigo-600 hover:underline font-semibold"
+            >
+              Lihat Sertifikat Asli
+            </a>
           </motion.div>
         </motion.div>
       )}
@@ -141,20 +171,54 @@ function CertificateModal({ cert, onClose }) {
 
 export default function Sertifikat() {
   const [activeCert, setActiveCert] = useState(null);
+  const [query, setQuery] = useState('');
+
+  const filtered = useMemo(() => {
+    const q = query.toLowerCase();
+    return certificates.filter(
+      (c) =>
+        c.title.toLowerCase().includes(q) ||
+        c.tags.some((t) => t.toLowerCase().includes(q))
+    );
+  }, [query]);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-10 transition-colors">
       <div className="container mx-auto px-4">
-        <h1 className="text-center text-4xl font-extrabold mb-12 text-gray-800 dark:text-gray-100">
-          Portfolio Sertifikat
-        </h1>
-
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-          {certificates.map((cert) => (
-            <CertificateCard key={cert.id} cert={cert} onClick={setActiveCert} />
-          ))}
+        {/* Personal Branding */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100">
+            Sertifikat & Prestasi Muhammad Syaiful Mukmin
+          </h1>
+          <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
+            Koleksi bukti keahlian saya—setiap sertifikat adalah jejak dedikasi, inovasi, dan komitmen terhadap kualitas.
+          </p>
         </div>
 
+        {/* Search */}
+        <div className="max-w-md mx-auto mb-8">
+          <input
+            type="text"
+            placeholder="Cari sertifikat atau tag..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full p-3 rounded-full border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          />
+        </div>
+
+        {/* Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+          {filtered.map((cert) => (
+            <CertificateCard key={cert.id} cert={cert} onClick={setActiveCert} />
+          ))}
+          {filtered.length === 0 && (
+            <p className="col-span-full text-center text-gray-500 dark:text-gray-400">
+              Tidak ada sertifikat yang sesuai.
+            </p>
+          )}
+        </div>
+
+        {/* Modal */}
         <CertificateModal cert={activeCert} onClose={() => setActiveCert(null)} />
       </div>
     </div>

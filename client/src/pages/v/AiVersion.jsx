@@ -1,8 +1,11 @@
 // src/components/AiVersion.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import aiVersionData from '../../data/aiVersion.json';
+import { FiHelpCircle, FiX } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const AiVersion = () => {
+export default function AiVersion() {
+  const [open, setOpen] = useState(false);
   const {
     version,
     updatedAt,
@@ -23,67 +26,103 @@ const AiVersion = () => {
     });
 
   return (
-    <div className="mx-auto px-4 py-6 max-w-4xl space-y-8">
-      <div className="bg-gradient-to-r from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 text-white rounded-2xl p-6 shadow-md transform hover:scale-[1.02] transition">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">Saipul AI</h2>
-        <p className="text-sm md:text-base">
-          <span className="font-semibold">v{version}</span> — diperbarui {formatDate(updatedAt)}
-        </p>
-      </div>
+    <>
+      {/* Tombol “?” */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="fixed bottom-6 right-6 z-50 bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-3 rounded-full shadow-md hover:shadow-lg transition"
+        aria-label="Buka Informasi Versi"
+      >
+        <FiHelpCircle className="w-5 h-5" />
+      </button>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Release Metadata */}
-        <section className="bg-white dark:bg-neutral-900 rounded-xl shadow p-5 space-y-3">
-          <h3 className="text-xl font-semibold border-b pb-2">Release Metadata</h3>
-          <ul className="text-sm space-y-1">
-            <li><strong>Release Date:</strong> {formatDate(releaseDate)}</li>
-            <li><strong>Author:</strong> {author}</li>
-          </ul>
-        </section>
+      {/* Popup ala menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed bottom-20 right-6 z-50"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+          >
+            <div className="bg-white dark:bg-gray-900 w-[350px] md:w-[420px] rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-y-auto max-h-[75vh]">
+              {/* Header panel dengan tombol tutup */}
+              <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                  Saipul AI v{version}
+                </h4>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                  aria-label="Tutup"
+                >
+                  <FiX className="w-5 h-5" />
+                </button>
+              </div>
 
-        {/* Compatibility & Known Issues */}
-        <section className="space-y-6">
-          <div className="bg-white dark:bg-neutral-900 rounded-xl shadow p-5">
-            <h3 className="text-xl font-semibold border-b pb-2 mb-2">Compatibility</h3>
-            <ul className="text-sm space-y-1">
-              <li><strong>Min Client:</strong> {compatibility.minClientVersion}</li>
-              <li>
-                <strong>Tested on:</strong>
-                <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                  {compatibility.testedOn.map((b,i) => <li key={i}>{b}</li>)}
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div className="bg-white dark:bg-neutral-900 rounded-xl shadow p-5">
-            <h3 className="text-xl font-semibold border-b pb-2 mb-2">Known Issues</h3>
-            <ul className="text-sm list-disc list-inside space-y-1">
-              {knownIssues.map((issue,i) => <li key={i}>{issue}</li>)}
-            </ul>
-          </div>
-        </section>
-      </div>
+              {/* Konten asli tetap, dibungkus supaya tetap tampil rapi dalam panel */}
+              <div className="px-4 py-4 space-y-6 text-sm text-gray-800 dark:text-gray-200">
+                <div className="bg-gradient-to-r from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 text-white rounded-xl p-4 shadow">
+                  <h2 className="text-xl font-bold mb-1">Saipul AI</h2>
+                  <p><strong>Versi:</strong> {version} — diperbarui {formatDate(updatedAt)}</p>
+                </div>
 
-      {/* Release Notes */}
-      <section className="bg-white dark:bg-neutral-900 rounded-xl shadow p-5">
-        <h3 className="text-2xl font-semibold mb-4 text-center">Release Notes</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-          {[
-            { title: 'New Features', items: notes.newFeatures },
-            { title: 'Improvements', items: notes.improvements },
-            { title: 'Bug Fixes', items: notes.bugFixes },
-          ].map((group, idx) => (
-            <div key={idx} className="space-y-2">
-              <h4 className="font-medium text-base">{group.title}</h4>
-              <ul className="list-disc list-inside space-y-1">
-                {group.items.map((text,i) => <li key={i}>{text}</li>)}
-              </ul>
+                <section>
+                  <h3 className="font-semibold mb-1">Release Metadata</h3>
+                  <ul className="space-y-1">
+                    <li><strong>Release Date:</strong> {formatDate(releaseDate)}</li>
+                    <li><strong>Author:</strong> {author}</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 className="font-semibold mb-1">Compatibility</h3>
+                  <ul className="space-y-1">
+                    <li><strong>Min Client:</strong> {compatibility.minClientVersion}</li>
+                    <li>
+                      <strong>Tested on:</strong>
+                      <ul className="list-disc list-inside ml-4">
+                        {compatibility.testedOn.map((b, i) => (
+                          <li key={i}>{b}</li>
+                        ))}
+                      </ul>
+                    </li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 className="font-semibold mb-1">Known Issues</h3>
+                  <ul className="list-disc list-inside ml-4">
+                    {knownIssues.map((issue, i) => (
+                      <li key={i}>{issue}</li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 className="font-semibold mb-2 text-center">Release Notes</h3>
+                  <div className="grid grid-cols-1 gap-4">
+                    {[
+                      { title: 'New Features', items: notes.newFeatures },
+                      { title: 'Improvements', items: notes.improvements },
+                      { title: 'Bug Fixes', items: notes.bugFixes }
+                    ].map((group, idx) => (
+                      <div key={idx}>
+                        <h4 className="font-medium">{group.title}</h4>
+                        <ul className="list-disc list-inside ml-4">
+                          {group.items.map((text, i) => (
+                            <li key={i}>{text}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
-};
-
-export default AiVersion;
+}
