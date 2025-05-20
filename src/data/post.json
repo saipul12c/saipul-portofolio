@@ -1,0 +1,76 @@
+[
+  {
+    "id": 1,
+    "title": "Mengenal JavaScript untuk Pemula",
+    "slug": "mengenal-javascript-untuk-pemula",
+    "author": {
+      "id": 101,
+      "name": "Andi Saputra",
+      "username": "andisaputra",
+      "email": "andi@example.com",
+      "avatar": "https://example.com/avatar/andi.jpg",
+      "bio": "Front-end developer dan edukator teknologi web.",
+      "verified": true
+    },
+    "date": "2025-05-01T08:30:00Z",
+    "updatedAt": "2025-05-10T14:15:00Z",
+    "published": true,
+    "pinned": false,
+    "featured": true,
+    "excerpt": "Pelajari dasar-dasar JavaScript, bahasa pemrograman yang digunakan di hampir semua website modern.",
+    "content": {
+      "lang": "id",
+      "body": "JavaScript adalah bahasa pemrograman yang berjalan di browser dan memungkinkan interaksi dinamis di halaman web. Dalam artikel ini, kita akan membahas variabel, fungsi, dan manipulasi DOM.",
+      "wordCount": 520
+    },
+    "category": {
+      "id": 10,
+      "name": "Pemrograman",
+      "slug": "pemrograman"
+    },
+    "tags": ["JavaScript", "Pemrograman", "Web Development"],
+    "image": {
+      "url": "https://example.com/images/js-pemula.jpg",
+      "alt": "Ilustrasi JavaScript untuk pemula",
+      "width": 1280,
+      "height": 720
+    },
+    "seo": {
+      "title": "Belajar JavaScript untuk Pemula - Panduan Lengkap",
+      "description": "Panduan JavaScript dari nol untuk pemula. Pelajari variabel, fungsi, dan DOM.",
+      "keywords": ["javascript pemula", "belajar javascript", "dom javascript"]
+    },
+    "stats": {
+      "likes": 120,
+      "views": 2300,
+      "shares": 45,
+      "bookmarked": 38,
+      "readingTime": "5 menit"
+    },
+    "comments": [
+      {
+        "id": 501,
+        "user": {
+          "id": 203,
+          "name": "Budi Hartono",
+          "avatar": "https://example.com/avatar/budi.jpg"
+        },
+        "content": "Penjelasannya mudah dipahami, terima kasih!",
+        "date": "2025-05-02T12:00:00Z",
+        "likes": 5
+      }
+    ],
+    "revisions": [
+      {
+        "revisionId": "rev001",
+        "updatedAt": "2025-05-05T10:00:00Z",
+        "notes": "Perbaikan typo dan penambahan link referensi."
+      },
+      {
+        "revisionId": "rev002",
+        "updatedAt": "2025-05-10T14:15:00Z",
+        "notes": "Update gambar dan penyesuaian SEO."
+      }
+    ]
+  }
+]
