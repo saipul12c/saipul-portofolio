@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import postsData from './blog/blog.json';
-import { initTheme } from './utils/theme';
+import { initTheme } from '../utils/theme';
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
