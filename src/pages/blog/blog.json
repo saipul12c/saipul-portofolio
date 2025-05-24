@@ -10,7 +10,14 @@
       "email": "andi@example.com",
       "avatar": "https://example.com/avatar/andi.jpg",
       "bio": "Front-end developer dan edukator teknologi web.",
-      "verified": true
+      "verified": true,
+      "location": "Yogyakarta, Indonesia",
+      "social": {
+        "twitter": "@andisaputra",
+        "linkedin": "https://linkedin.com/in/andisaputra"
+      },
+      "joinedAt": "2022-07-10T10:00:00Z",
+      "followers": 3200
     },
     "date": "2025-05-01T08:30:00Z",
     "updatedAt": "2025-05-10T14:15:00Z",
@@ -70,6 +77,210 @@
         "revisionId": "rev002",
         "updatedAt": "2025-05-10T14:15:00Z",
         "notes": "Update gambar dan penyesuaian SEO."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Belajar HTML Dasar untuk Pemula",
+    "slug": "belajar-html-dasar-untuk-pemula",
+    "author": {
+      "id": 102,
+      "name": "Siti Nurhaliza",
+      "username": "sitinurhaliza",
+      "email": "siti@example.com",
+      "avatar": "https://example.com/avatar/siti.jpg",
+      "bio": "Web designer dan instruktur coding untuk pemula.",
+      "verified": true,
+      "location": "Bandung, Indonesia",
+      "social": {
+        "twitter": "@sitinurhaliza",
+        "linkedin": "https://linkedin.com/in/sitinurhaliza"
+      },
+      "joinedAt": "2023-01-15T09:30:00Z",
+      "followers": 2750
+    },
+    "date": "2025-05-15T09:00:00Z",
+    "updatedAt": "2025-05-15T09:00:00Z",
+    "published": true,
+    "pinned": false,
+    "featured": false,
+    "excerpt": "HTML adalah pondasi dari semua halaman web. Mari pelajari struktur dasar dan elemen-elemen penting HTML.",
+    "content": {
+      "lang": "id",
+      "body": "HTML (HyperText Markup Language) digunakan untuk membuat struktur halaman web. Dalam artikel ini, kita akan mengenal elemen-elemen dasar seperti `<html>`, `<head>`, `<body>`, `<h1>` hingga `<p>`.",
+      "wordCount": 450
+    },
+    "category": {
+      "id": 10,
+      "name": "Pemrograman",
+      "slug": "pemrograman"
+    },
+    "tags": ["HTML", "Pemrograman", "Dasar Web"],
+    "image": {
+      "url": "https://example.com/images/html-dasar.jpg",
+      "alt": "Ilustrasi HTML dasar untuk pemula",
+      "width": 1280,
+      "height": 720
+    },
+    "seo": {
+      "title": "Panduan Belajar HTML untuk Pemula",
+      "description": "Pelajari struktur dasar HTML dan bagaimana membangun halaman web sederhana.",
+      "keywords": ["html dasar", "belajar html", "struktur html"]
+    },
+    "stats": {
+      "likes": 95,
+      "views": 1800,
+      "shares": 30,
+      "bookmarked": 25,
+      "readingTime": "4 menit"
+    },
+    "comments": [
+      {
+        "id": 502,
+        "user": {
+          "id": 204,
+          "name": "Rina Marlina",
+          "avatar": "https://example.com/avatar/rina.jpg"
+        },
+        "content": "Artikel yang sangat membantu untuk pemula, terima kasih banyak!",
+        "date": "2025-05-15T11:30:00Z",
+        "likes": 3
+      }
+    ],
+    "revisions": [
+      {
+        "revisionId": "rev001",
+        "updatedAt": "2025-05-15T09:00:00Z",
+        "notes": "Artikel pertama kali dipublikasikan."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "CSS Dasar: Gaya untuk Halaman Web",
+    "slug": "css-dasar-gaya-untuk-halaman-web",
+    "author": {
+      "id": 103,
+      "name": "Joko Santoso",
+      "username": "jokos",
+      "email": "joko@example.com",
+      "avatar": "https://example.com/avatar/joko.jpg",
+      "bio": "Spesialis UI/UX dan penulis blog web development.",
+      "verified": true,
+      "location": "Surabaya, Indonesia",
+      "social": {
+        "twitter": "@jokosantoso",
+        "linkedin": "https://linkedin.com/in/jokosantoso"
+      },
+      "joinedAt": "2021-11-20T08:00:00Z",
+      "followers": 4100
+    },
+    "date": "2025-05-20T10:00:00Z",
+    "updatedAt": "2025-05-20T10:00:00Z",
+    "published": true,
+    "pinned": false,
+    "featured": false,
+    "excerpt": "CSS membuat website kamu jadi lebih menarik! Yuk pelajari dasar-dasar styling menggunakan CSS.",
+    "content": {
+      "lang": "id",
+      "body": "CSS (Cascading Style Sheets) digunakan untuk mengatur tampilan halaman web, seperti warna, ukuran font, dan layout. Dalam artikel ini kita akan membahas selector, properti, dan cara menyisipkan CSS.",
+      "wordCount": 480
+    },
+    "category": {
+      "id": 10,
+      "name": "Pemrograman",
+      "slug": "pemrograman"
+    },
+    "tags": ["CSS", "Web Design", "Styling"],
+    "image": {
+      "url": "https://example.com/images/css-dasar.jpg",
+      "alt": "Desain web dengan CSS",
+      "width": 1280,
+      "height": 720
+    },
+    "seo": {
+      "title": "Belajar CSS Dasar - Tutorial Lengkap",
+      "description": "Pelajari cara menggunakan CSS untuk membuat tampilan halaman web lebih menarik dan responsif.",
+      "keywords": ["belajar css", "css dasar", "style web"]
+    },
+    "stats": {
+      "likes": 105,
+      "views": 2000,
+      "shares": 34,
+      "bookmarked": 29,
+      "readingTime": "4 menit"
+    },
+    "comments": [],
+    "revisions": [
+      {
+        "revisionId": "rev001",
+        "updatedAt": "2025-05-20T10:00:00Z",
+        "notes": "Artikel baru dipublikasikan."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Panduan Git dan GitHub untuk Pemula",
+    "slug": "panduan-git-dan-github-untuk-pemula",
+    "author": {
+      "id": 104,
+      "name": "Raka Pratama",
+      "username": "rakap",
+      "email": "raka@example.com",
+      "avatar": "https://example.com/avatar/raka.jpg",
+      "bio": "DevOps enthusiast dan mentor open source.",
+      "verified": true,
+      "location": "Jakarta, Indonesia",
+      "social": {
+        "twitter": "@rakapratama",
+        "linkedin": "https://linkedin.com/in/rakapratama"
+      },
+      "joinedAt": "2020-06-01T14:45:00Z",
+      "followers": 5200
+    },
+    "date": "2025-05-21T12:00:00Z",
+    "updatedAt": "2025-05-21T12:00:00Z",
+    "published": true,
+    "pinned": false,
+    "featured": false,
+    "excerpt": "Git dan GitHub penting untuk kolaborasi dalam pengembangan perangkat lunak. Pelajari langkah-langkah dasar di artikel ini.",
+    "content": {
+      "lang": "id",
+      "body": "Git adalah sistem kontrol versi yang digunakan secara luas. GitHub adalah platform untuk menyimpan dan berkolaborasi dengan kode menggunakan Git. Di sini kita bahas clone, commit, push, dan pull request.",
+      "wordCount": 600
+    },
+    "category": {
+      "id": 10,
+      "name": "Pemrograman",
+      "slug": "pemrograman"
+    },
+    "tags": ["Git", "GitHub", "Version Control"],
+    "image": {
+      "url": "https://example.com/images/git-github.jpg",
+      "alt": "Ilustrasi Git dan GitHub",
+      "width": 1280,
+      "height": 720
+    },
+    "seo": {
+      "title": "Dasar Git dan GitHub - Panduan Lengkap",
+      "description": "Pelajari perintah dasar Git dan cara menggunakan GitHub untuk kolaborasi proyek.",
+      "keywords": ["git dasar", "belajar github", "versi kontrol"]
+    },
+    "stats": {
+      "likes": 89,
+      "views": 1700,
+      "shares": 27,
+      "bookmarked": 19,
+      "readingTime": "6 menit"
+    },
+    "comments": [],
+    "revisions": [
+      {
+        "revisionId": "rev001",
+        "updatedAt": "2025-05-21T12:00:00Z",
+        "notes": "Publikasi awal artikel."
       }
     ]
   }

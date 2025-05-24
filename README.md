@@ -8,55 +8,28 @@
 
 ## 📝 Changelog
 
-### Versi 1.3.3 (2025-05-19)
+### Versi 1.3.4 (2025-05-24)
 
-Memperbaiki dan menyelaraskan semua komponen sesuai arsitektur baru `RouteController`, routing dinamis, dan konsistensi UI/UX.
+Menambahkan **dukungan dark mode otomatis** berdasarkan preferensi sistem pengguna serta menyempurnakan UI untuk konsistensi warna dan visibilitas.
 
-#### 🔹 `RouteController.jsx`
+#### 🔹 `Author.jsx`
 
-* **GuardedRoute menerima `children`** bukan prop `element`, sehingga rute terlindungi dapat merender konten anak langsung.
-* Menambahkan logika `useCallback` pada handler untuk mencegah peringatan lint.
-* Menyinkronkan API: `lockRoutes`, `unlockRoutes`, dan `allowAccessWithKey` tetap bekerja dengan `Set` dan `Map`.
-* `RouteControllerUI` tetap berfungsi sebagai panel admin, dengan state `durations` yang diinisialisasi berdasarkan `availableRoutes`.
+✅ **Penambahan Fitur:**
 
-#### 🔹 `App.jsx`
+* 🌙 **Dark Mode Support**:
 
-* Membungkus seluruh aplikasi dengan `<RouteControllerProvider>`.
-* Pindahkan inisialisasi tema ke dalam `useEffect` di `AppContent`.
-* Konsisten menggunakan `<GuardedRoute>` dengan prop `children` untuk rute yang terkunci (`/proyek`, `/pendidikan`, `/testimoni`, dll.).
-* Tambahkan `PengembanganWithUnlock` untuk memicu `unlockRoutes` saat selesai, menggantikan direct callback ke komponen `Pengembangan`.
+  * Menambahkan kelas Tailwind `dark:` pada semua elemen yang berkaitan dengan warna background, teks, dan border.
+  * Menyesuaikan elemen seperti card, heading, paragraf, dan tombol agar terlihat baik di dark mode.
 
-#### 🔹 `pengembangan.jsx`
+✅ **Penyesuaian Visual:**
 
-* Pindahkan `handleFinishAndRedirect` ke `useCallback` dengan dependency `[onFinish, navigate, location.search]`.
-* Tambahkan `secondsLeft` guard (`Math.max`) agar tidak negatif.
-* Sesuaikan progress bar untuk menghitung ulang dengan benar dan transisi 1 detik.
-* Tambahkan timer cleanup (interval + timeout) di `useEffect`.
+* Semua warna terang seperti `bg-white`, `text-gray-900`, `text-gray-700`, dan `text-gray-500` diganti/dipasangkan dengan alternatif dark mode (`dark:bg-gray-900`, `dark:text-gray-100`, dll).
+* Border diganti dengan `border-gray-200` dan `dark:border-gray-700` agar tetap kontras.
+* Teks info seperti bio, email, dan lokasi diberi warna netral yang bisa terlihat pada kedua mode.
 
-#### 🔹 `Testimoni.jsx`
+✅ **Tidak Menambahkan Tombol Dark Mode Manual**:
 
-* Ganti ikon outline (`Star as StarOutline`) menjadi `StarOff` untuk bintang kosong.
-* Konsisten menggunakan `Star`, `StarHalf`, dan `StarOff` di fungsi `renderStars`.
-* Pertahankan tampilan rata‑rata rating dengan `useMemo` dan animasi `framer-motion`.
-
-#### 🔹 `pendidikan.jsx`
-
-* Bungkus semua handler (`prev`, `next`, `goTo`, `handleOpen`, `handleClose`) dengan `useCallback`.
-* Perbaiki `key` dan `alt` pada elemen media untuk aksesibilitas.
-* Pertahankan struktur `AnimatePresence` + `motion` untuk modal dan carousel.
-
-#### 🔹 `Proyek.jsx`
-
-* Ubah `<Link href="…">` menjadi `<Link to="…">` sesuai `react-router-dom`.
-* Normalisasi path: tautan ke `/proyek/[slug]` (bukan `/A/detail-proyek/[slug]`).
-* Gunakan `whileHover` & `whileTap` dari `framer-motion` untuk efek interaktif.
-
-#### 🔹 `detail-proyek.jsx`
-
-* Ganti penggunaan `useRouter()` menjadi `useParams()` & `useNavigate()` dari `react-router-dom`.
-* Tangkap `slug` dari URL (`/proyek/:slug`) dan cari data di `proyek.json`.
-* Tampilkan tombol “← Kembali” dengan `navigate(-1)`.
-* Tambahkan animasi masuk lembut dengan `motion.section` dan offset `y`.
+* Mode gelap diaktifkan otomatis mengikuti preferensi sistem pengguna (`media prefers-color-scheme: dark`).
 
 ---
 

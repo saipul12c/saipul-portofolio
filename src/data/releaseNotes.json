@@ -109,6 +109,18 @@
         "📦 `Proyek.jsx`: perbaiki `<Link to>` menggunakan `react-router-dom`, tautan ke `/proyek/[slug]`",
         "📂 `detail-proyek.jsx`: ganti `useRouter()` ke `useParams()` dan `useNavigate()`, tambahkan tombol kembali dan animasi masuk"
       ]
+    },
+    {
+      "version": "1.3.4",
+      "releaseDate": "2025-05-24T00:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "🌙 Tambahkan dukungan dark mode otomatis pada komponen Author tanpa tombol toggle",
+        "🎨 Sesuaikan warna background, teks, border dengan kelas Tailwind `dark:` untuk tampilan gelap",
+        "✅ Tooltip muncul saat hover atau klik ikon centang biru untuk menampilkan pesan 'Penulis ini telah diverifikasi oleh sistem dan dapat dipercaya'",
+        "✨ Memperbaiki pengalaman pengguna agar UI tetap bersih dan interaktif tanpa menggunakan pop-up browser tradisional",
+        "🛠️ Semua perubahan tidak menggunakan canvas dan menjaga konsistensi kode React + Tailwind"
+      ]
     }
   ]
 }
