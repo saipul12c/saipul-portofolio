@@ -136,6 +136,24 @@
         "📦 Tidak ada penggunaan canvas, semua perubahan berbasis Tailwind utility-class yang ringan",
         "🛠️ Kode dioptimalkan untuk performa dan keterbacaan, memanfaatkan Tailwind + React secara idiomatis"
       ]
+    },
+    {
+      "version": "1.4.6",
+      "releaseDate": "2025-05-24T12:00:00.000Z",
+      "author": "Muhammad Syaiful Mukmin",
+      "notes": [
+        "🧠 Refactor total `AiVersion.jsx` menjadi tampilan penuh halaman (bukan popup/toggle), langsung tampil di /ai-version",
+        "✅ Hapus dependency pada tombol `?`, framer-motion, dan state `open` — seluruh data JSON langsung ditampilkan",
+        "📄 Menambahkan judul, metadata rilis, info kompatibilitas, issue, dan catatan rilis dalam struktur section yang rapi",
+        "✨ Gunakan ikon `FiCheckCircle` untuk menggantikan bullet default (`o`) agar lebih profesional dan modern",
+        "🎨 Tambahkan styling konsisten, padding, grid, shadow, dan dark mode penuh dengan TailwindCSS (`dark:*`)",
+        "🔍 `Proyek.jsx`: tambah kalimat pembuka setelah judul utama agar lebih komunikatif",
+        "🔎 `Proyek.jsx`: implementasi fitur pencarian berdasarkan judul proyek",
+        "🛠️ `detail-proyek.jsx`: menampilkan semua data dari struktur proyek JSON baru — overview, background, objectives, technologies, features, benefits, strengths, limitations, projectStage, dll",
+        "📁 `proyek.json`: tingkatkan struktur dan isi — kini mendukung lebih dari 15 properti per proyek, termasuk screenshot, testimonial, deployment URL, future plans, dan lainnya",
+        "🧱 Tambah helper modular untuk rendering release notes yang reusable",
+        "🔧 Semua update kompatibel dengan sistem layout sebelumnya — tidak menggunakan canvas dan ringan untuk mobile"
+      ]
     }
   ]
 }

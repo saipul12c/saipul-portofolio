@@ -8,76 +8,83 @@
 
 ## 📝 Changelog
 
-### Versi 1.4.5 (2025-05-24)
+### Versi 1.4.6 (2025-05-24)
 
-Menambahkan **dukungan dark mode otomatis** berdasarkan preferensi sistem pengguna serta menyempurnakan UI untuk konsistensi warna dan visibilitas.
+#### 🔹 `AiVersion.jsx`
 
-### 🔹 `FAQ.jsx`
+✅ **Perombakan Tampilan Penuh (tanpa popup):**
+Menampilkan langsung informasi versi AI secara penuh di halaman `/ai-version`, tanpa membutuhkan klik tombol “?”.
 
-✅ **Dark Mode Support:**
+✅ **Struktur Informasi Lebih Lengkap dan Rapi:**
 
-* Menambahkan `dark:bg-gray-900`, `dark:text-gray-100`, `dark:border-gray-700` ke seluruh elemen UI.
-* Input search, card FAQ, dan tag sudah dioptimalkan tampilannya untuk mode malam.
+* Menampilkan metadata rilis: versi, tanggal, dan penulis.
+* Menampilkan info kompatibilitas minimum dan daftar browser yang diuji.
+* Daftar *known issues* dan *release notes* dibagi ke dalam: `New Features`, `Improvements`, `Bug Fixes`.
 
-✅ **Visual Enhancement:**
+✅ **Visual Enhancement & Konsistensi UI:**
 
-* Transisi warna halus antar mode dengan `transition-colors duration-300`.
-* Menghindari `bg-white` statis dengan mengganti menggunakan `dark:bg-*`.
-* Tag warna menyesuaikan agar tidak terlalu terang di dark mode.
-
-✅ **Konsistensi Desain:**
-
-* Menyatu dengan desain `Navbar` dan `Footer`.
-
-### 🔹 `Proyek.jsx`
+* Bullet teks ditingkatkan dari list standar menjadi elemen fleksibel dengan ikon `FiCheckCircle`.
+* Perbaikan terhadap tampilan list yang sebelumnya terlihat seperti huruf "o" kecil.
+* Tampilan lebih profesional dan readable baik di desktop maupun mobile.
 
 ✅ **Dark Mode Support:**
 
-* Background diganti dengan `bg-gray-50 dark:bg-gray-900`.
-* Semua teks memiliki `dark:text-*` agar terbaca di mode malam.
-* Kartu proyek pakai `dark:bg-gray-800` dan `dark:shadow-md`.
+* Semua elemen mendukung `dark:bg-*`, `dark:text-*`, dan transisi dengan `transition-colors duration-300`.
 
-✅ **Visual Enhancement:**
+✅ **Reusable Helper:**
 
-* Tetap mempertahankan nuansa bersih di siang hari, dan dalam di malam hari.
+* Fungsi `renderNoteGroup` untuk mencetak grup release notes secara modular dan konsisten.
 
-### 🔹 `Detail-Proyek.jsx`
+#### 🔹 `Proyek.jsx`
 
-✅ **Dark Mode Support:**
+✅ **Kalimat Pengenalan Baru:**
 
-* Section dan teks diberi `dark:bg-gray-900`, `dark:text-gray-100`, dll.
-* Tombol kembali diberi `dark:text-blue-400` agar tetap terlihat di dark mode.
+* Menambahkan kalimat menarik di bawah judul:
+  *"Jelajahi berbagai proyek yang telah saya kembangkan dengan teknologi modern, solusi nyata, dan semangat inovatif."*
 
-✅ **Visual Fix:**
+✅ **Fitur Pencarian:**
 
-* Border dan teks dijaga kontrasnya di kedua mode.
+* Input pencarian berbasis state untuk memfilter daftar proyek berdasarkan judul.
 
-### 🔹 `Pendidikan.jsx`
+✅ **Peningkatan Tampilan Kartu:**
 
-✅ **Dark Mode Support:**
+* Menampilkan badge status (`projectStage`) dan periode (`developmentPeriod`).
+* Menampilkan sebagian `technologies` dan demo link jika tersedia.
+* Desain kartu proyek mendukung dark mode dan responsif.
+ 
+#### 🔹 `detail-proyek.jsx`
 
-* Latar belakang diperbaiki dengan gradient `dark:from-gray-900 dark:to-gray-800`.
-* Komponen semi-transparan (`bg-white bg-opacity-60`) disesuaikan: `dark:bg-gray-800 dark:bg-opacity-70`.
+✅ **Penyesuaian dengan Struktur JSON Baru:**
 
-✅ **Modal Dark Mode:**
+* Menampilkan semua informasi proyek: `overview`, `background`, `objectives`, `technologies`, `features`, `benefits`, `strengths`, `limitations`, `projectStage`, `deploymentUrl`, dll.
 
-* Modal diberi latar `dark:bg-gray-900`, ikon dengan `dark:text-gray-200`.
-* Tombol navigasi carousel mendukung dark mode penuh.
+✅ **Visual & UX:**
 
-✅ **Timeline UI:**
+* Penyajian data proyek dibagi ke dalam section-section yang rapi dan mudah dibaca.
+* Semua field opsional ditampilkan hanya jika tersedia.
+* Mendukung desain penuh di dark mode.
 
-* Garis vertikal timeline diberi gradient `dark:from-indigo-600 dark:to-purple-700`.
-* Dot penanda di tengah timeline diganti `dark:bg-gray-200`.
+#### 🔹 `proyek.json` (struktur data)
 
-✅ **Aksesibilitas Teks:**
+✅ **Struktur JSON Ditingkatkan:**
 
-* Semua teks memiliki `dark:text-gray-100`, `dark:text-gray-300`, dll agar tetap terbaca di mode malam.
+* Penambahan field penting: `overview`, `background`, `objectives`, `technologies`, `features`, `benefits`, `strengths`, `limitations`, `projectStage`, `deploymentUrl`, `repositoryUrl`, `client`, `screenshots`, `testimonials`, `maintenancePlan`, `futurePlans`.
+
+✅ **Deskripsi & Narasi Lebih Profesional:**
+
+* Setiap proyek menggunakan narasi teknis yang menjelaskan teknologi, manfaat, dan kelebihan dengan detail.
+
+✅ **Skalabilitas & Reusability:**
+
+* Struktur kini mendukung tampilan mendalam di UI proyek dan integrasi ke API atau CMS jika dibutuhkan.
+
+> 🔧 **Catatan Teknis Umum:**
+>
+> * Semua halaman mendukung **dark mode otomatis** berdasarkan preferensi sistem (`prefers-color-scheme`).
+> * Utility class TailwindCSS seperti `dark:*`, `transition-colors`, `shadow-*`, dan `bg-gradient-to-r` digunakan secara konsisten untuk pengalaman visual yang mulus.
+> * Komponen UI kini lebih terstruktur dan modular, mudah dikembangkan ke versi berikutnya.
 
 
-> 🔧 **Catatan Teknis:**
-
-* Tidak ada toggle dark mode manual, UI otomatis mengikuti preferensi sistem (CSS `prefers-color-scheme`).
-* Semua perubahan menggunakan utility class TailwindCSS `dark:` dan transisi visual untuk mode ganda.
 ---
 
 ## 🧩 Tech Stack

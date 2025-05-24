@@ -27,7 +27,7 @@ export default function Home() {
             Tentang Saya
           </Link>
           <Link
-            to="/portofolio"
+            to="/proyek"
             className="px-6 py-3 border-2 border-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-lg text-sm font-medium transition"
           >
             Lihat Proyek

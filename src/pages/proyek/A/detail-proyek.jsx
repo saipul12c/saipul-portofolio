@@ -32,7 +32,7 @@ export default function DetailProyek() {
       transition={{ duration: 0.4 }}
       className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
     >
-      <div className="max-w-3xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 py-12">
         <button
           onClick={() => navigate(-1)}
           className="mb-6 inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
@@ -46,17 +46,84 @@ export default function DetailProyek() {
           className="w-full h-64 object-cover rounded-xl mb-6 shadow-md"
         />
 
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
           {project.title}
         </h1>
 
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          {project.description}
-        </p>
+        {project.projectStage && (
+          <p className="text-sm text-green-600 dark:text-green-400 mb-2">
+            Status: {project.projectStage}
+          </p>
+        )}
+        {project.developmentPeriod && (
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+            Periode: {project.developmentPeriod}
+          </p>
+        )}
 
-        <div className="text-gray-800 dark:text-gray-200 leading-relaxed whitespace-pre-line">
-          {project.details}
-        </div>
+        <section className="text-gray-800 dark:text-gray-200 space-y-6">
+          <div>
+            <h2 className="text-xl font-semibold">Overview</h2>
+            <p>{project.overview}</p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold">Latar Belakang</h2>
+            <p>{project.background}</p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold">Tujuan</h2>
+            <p>{project.objectives}</p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold">Teknologi yang Digunakan</h2>
+            <ul className="list-disc list-inside">
+              {project.technologies.map((tech, index) => (
+                <li key={index}>{tech}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold">Fitur Utama</h2>
+            <ul className="list-disc list-inside">
+              {project.features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold">Manfaat</h2>
+            <p>{project.benefits}</p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold">Kelebihan</h2>
+            <p>{project.strengths}</p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold">Kekurangan</h2>
+            <p>{project.limitations}</p>
+          </div>
+
+          {project.deploymentUrl && (
+            <div>
+              <h2 className="text-xl font-semibold">Demo / Deployment</h2>
+              <a
+                href={project.deploymentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Lihat Situs
+              </a>
+            </div>
+          )}
+        </section>
       </div>
     </motion.section>
   );
