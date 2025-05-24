@@ -16,6 +16,7 @@ import Home         from './pages/Home';
 import About        from './pages/About';
 import Skills       from './pages/Skills';
 import Blog         from './pages/Blog';
+import BlogDetail   from './pages/BlogDetail';
 import Sertifikat   from './pages/Sertifikat';
 import KontakAdmin  from './pages/KontakAdmin';
 import Author       from './pages/author/Author'
@@ -113,6 +114,7 @@ function AppContent() {
           <Route path="/skills"               element={<Skills />} />
           <Route path="/sertifikat"           element={<Sertifikat />} />
           <Route path="/blog"                 element={<Blog />} />
+          <Route path="/blog/:slug"           element={<BlogDetail />} /> {/* Tambahkan ini */}
           <Route path="/Author/:username"     element={<Author />} />
           <Route path="/kontak"               element={<KontakAdmin />} />
 

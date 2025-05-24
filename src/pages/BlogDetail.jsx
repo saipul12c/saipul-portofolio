@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import postsData from '../../data/post.json';
+import postsData from './blog/blog.json';
 
 const BlogDetail = () => {
   const location = useLocation();

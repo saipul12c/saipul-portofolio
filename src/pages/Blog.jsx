@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import postsData from '../../data/post.json';
+import postsData from './blog/blog.json';
+import { initTheme } from './utils/theme';
 
 const Blog = () => {
-  const [posts, setPosts]     = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
-  const [error, setError]     = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    initTheme();
     try {
       setTimeout(() => {
         setPosts(postsData);
+        setFilteredPosts(postsData);
         setLoading(false);
       }, 300);
     } catch (err) {
@@ -20,9 +25,19 @@ const Blog = () => {
     }
   }, []);
 
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+    setSearchTerm(value);
+    const filtered = posts.filter((post) =>
+      post.title.toLowerCase().includes(value) ||
+      post.author?.name.toLowerCase().includes(value)
+    );
+    setFilteredPosts(filtered);
+  };
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-50">
+      <div className="flex items-center justify-center h-screen bg-gray-50 dark:bg-gray-900">
         <div className="animate-spin rounded-full h-20 w-20 border-t-4 border-indigo-600"></div>
       </div>
     );
@@ -30,42 +45,53 @@ const Blog = () => {
 
   if (error) {
     return (
-      <div className="max-w-xl mx-auto p-6 text-center">
-        <p className="text-red-500">{error}</p>
+      <div className="max-w-xl mx-auto p-6 text-center text-red-500">
+        {error}
       </div>
     );
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <h1 className="text-5xl font-extrabold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600">
-        Blog Insights
-      </h1>
+    <div className="max-w-7xl mx-auto px-6 py-12 text-gray-900 dark:text-gray-100">
+      <div className="mb-12">
+        <h1 className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-300 dark:to-purple-400">
+          Blog Insights
+        </h1>
+        <div className="mt-6 flex justify-center">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearch}
+            placeholder="Cari judul atau penulis..."
+            className="w-full max-w-md px-5 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+      </div>
 
-      {posts.length > 0 ? (
+      {filteredPosts.length > 0 ? (
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <div
               key={post.slug}
-              className="group flex flex-col bg-white rounded-2xl shadow-md overflow-hidden transform transition-transform duration-300 hover:shadow-xl hover:scale-105"
+              className="group flex flex-col bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-lg transition duration-300"
             >
               {post.image?.url && (
-                <div className="relative w-full aspect-w-16 aspect-h-9">
+                <div className="relative w-full aspect-video">
                   <img
                     src={post.image.url}
                     alt={post.image.alt || post.title}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full rounded-t-2xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               )}
 
-              <div className="p-6 flex flex-col flex-grow">
-                <h2 className="text-xl font-semibold mb-2 line-clamp-2 group-hover:text-indigo-600 transition-colors">
+              <div className="p-5 flex flex-col flex-grow">
+                <h2 className="text-lg sm:text-xl font-semibold mb-2 line-clamp-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
                   {post.title}
                 </h2>
 
-                <div className="flex items-center text-sm text-gray-500 mb-4 space-x-3">
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3 space-x-3">
                   <time dateTime={post.date}>
                     {new Date(post.date).toLocaleDateString('id-ID', {
                       day: 'numeric',
@@ -73,13 +99,11 @@ const Blog = () => {
                       year: 'numeric',
                     })}
                   </time>
-
                   <span>•</span>
-
                   {post.author ? (
                     <Link
                       to={`/Author/${post.author.username}`}
-                      className="flex items-center text-indigo-600 hover:underline"
+                      className="flex items-center text-indigo-600 dark:text-indigo-300 hover:underline"
                     >
                       {post.author.avatar && (
                         <img
@@ -109,14 +133,14 @@ const Blog = () => {
                   )}
                 </div>
 
-                <p className="text-sm text-gray-400 mb-6 flex-grow line-clamp-3">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-grow">
                   {post.excerpt || post.content?.body?.slice(0, 120) + '...'}
                 </p>
 
                 <Link
                   to={`/blog/${post.slug}`}
                   state={{ post }}
-                  className="mt-auto inline-block text-center font-medium bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-2 px-4 rounded-full hover:opacity-90 transition-opacity duration-200"
+                  className="mt-auto text-center inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-full transition-colors"
                 >
                   Baca Selengkapnya
                 </Link>
@@ -125,8 +149,8 @@ const Blog = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center text-gray-500 mt-12">
-          Belum ada artikel yang dipublikasikan.
+        <div className="text-center text-gray-500 dark:text-gray-400 mt-12">
+          Tidak ada artikel ditemukan.
         </div>
       )}
     </div>

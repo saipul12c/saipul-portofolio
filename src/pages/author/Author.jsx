@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import postsData from '../../data/post.json';
+import postsData from "../blog/blog.json";
 
 const Author = () => {
   const { username } = useParams();
