@@ -1,4 +1,3 @@
-// src/pages/p/pendidikan.jsx
 import React, { useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,10 +12,8 @@ const data = [
     description: 'Memperdalam ilmu algoritma, struktur data, dan pengembangan web.',
     media: [
       { type: 'image', src: '/images/uni-abc-1.jpg' },
-      // ... lebih dari 10 media
     ],
   },
-  // ... lainnya
 ];
 
 function Modal({ item, onClose }) {
@@ -48,10 +45,9 @@ function Modal({ item, onClose }) {
           exit={{ opacity: 0 }}
         >
           <div
-            className="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-lg"
+            className="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-sm"
             onClick={onClose}
           />
-
           <motion.div
             className="relative w-full max-w-4xl bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden mx-4 sm:mx-0 flex flex-col sm:flex-row"
             initial={{ y: 50, opacity: 0 }}
@@ -59,7 +55,6 @@ function Modal({ item, onClose }) {
             exit={{ y: 50, opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            {/* Left: Media Carousel */}
             <div className="relative flex-shrink-0 w-full sm:w-1/2 h-64 sm:h-auto bg-black">
               {item.media[current].type === 'image' ? (
                 <img
@@ -74,20 +69,18 @@ function Modal({ item, onClose }) {
                   className="w-full h-full object-cover"
                 />
               )}
-
               <button
                 onClick={prev}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-700 bg-opacity-50 dark:bg-opacity-60 hover:bg-opacity-80 rounded-full p-2"
               >
-                <ChevronLeft />
+                <ChevronLeft className="text-gray-800 dark:text-gray-200" />
               </button>
               <button
                 onClick={next}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-700 bg-opacity-50 dark:bg-opacity-60 hover:bg-opacity-80 rounded-full p-2"
               >
-                <ChevronRight />
+                <ChevronRight className="text-gray-800 dark:text-gray-200" />
               </button>
-
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
                 {item.media.map((m, idx) => (
                   <div
@@ -98,23 +91,15 @@ function Modal({ item, onClose }) {
                     onClick={(e) => goTo(e, idx)}
                   >
                     {m.type === 'image' ? (
-                      <img
-                        src={m.src}
-                        alt={`thumb-${idx}`}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={m.src} alt={`thumb-${idx}`} className="w-full h-full object-cover" />
                     ) : (
-                      <video
-                        src={m.src}
-                        className="w-full h-full object-cover"
-                      />
+                      <video src={m.src} className="w-full h-full object-cover" />
                     )}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right: Info */}
             <div className="p-6 overflow-auto flex-1 relative">
               <button
                 onClick={onClose}
@@ -122,10 +107,10 @@ function Modal({ item, onClose }) {
               >
                 <X className="w-6 h-6 text-gray-800 dark:text-gray-200" />
               </button>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 {item.institution}
               </h3>
-              <span className="text-indigo-600 font-medium mb-4 block">
+              <span className="text-indigo-600 dark:text-indigo-400 font-medium mb-4 block">
                 {item.period}
               </span>
               <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
@@ -155,7 +140,7 @@ export default function Pendidikan() {
   }, []);
 
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-16 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-4xl mx-auto relative">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
@@ -166,9 +151,9 @@ export default function Pendidikan() {
           Riwayat Pendidikan
         </motion.h2>
 
-        <div className="absolute left-1/2 transform -translate-x-1 w-1 h-full bg-gradient-to-b from-blue-300 to-purple-300" />
+        <div className="absolute left-1/2 transform -translate-x-1 w-1 h-full bg-gradient-to-b from-blue-300 to-purple-300 dark:from-indigo-600 dark:to-purple-700" />
 
-        <div className="space-y-12">
+        <div className="space-y-12 relative z-10">
           {data.map((item, index) => {
             const isLeft = index % 2 === 0;
             return (
@@ -185,14 +170,14 @@ export default function Pendidikan() {
                   className="w-full sm:w-2/3 cursor-pointer transform hover:scale-105 transition-transform"
                   onClick={handleOpen(item)}
                 >
-                  <div className="relative z-10 bg-white bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-60 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
+                  <div className="relative z-10 bg-white bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-70 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
                     <div className="flex items-center mb-2">
                       <GraduationCap className="w-6 h-6 text-indigo-600 mr-2" />
                       <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                         {item.institution}
                       </h3>
                     </div>
-                    <span className="text-indigo-600 font-medium">
+                    <span className="text-indigo-600 dark:text-indigo-400 font-medium">
                       {item.period}
                     </span>
                     <h4 className="mt-2 font-semibold text-gray-700 dark:text-gray-200">
@@ -203,7 +188,7 @@ export default function Pendidikan() {
                     </p>
                   </div>
                 </div>
-                <div className="absolute left-1/2 top-4 transform -translate-x-1/2 bg-white border-4 border-indigo-400 rounded-full w-6 h-6" />
+                <div className="absolute left-1/2 top-4 transform -translate-x-1/2 bg-white dark:bg-gray-200 border-4 border-indigo-400 rounded-full w-6 h-6" />
               </motion.div>
             );
           })}

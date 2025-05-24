@@ -8,29 +8,76 @@
 
 ## 📝 Changelog
 
-### Versi 1.3.4 (2025-05-24)
+### Versi 1.4.5 (2025-05-24)
 
 Menambahkan **dukungan dark mode otomatis** berdasarkan preferensi sistem pengguna serta menyempurnakan UI untuk konsistensi warna dan visibilitas.
 
-#### 🔹 `Author.jsx`
+### 🔹 `FAQ.jsx`
 
-✅ **Penambahan Fitur:**
+✅ **Dark Mode Support:**
 
-* 🌙 **Dark Mode Support**:
+* Menambahkan `dark:bg-gray-900`, `dark:text-gray-100`, `dark:border-gray-700` ke seluruh elemen UI.
+* Input search, card FAQ, dan tag sudah dioptimalkan tampilannya untuk mode malam.
 
-  * Menambahkan kelas Tailwind `dark:` pada semua elemen yang berkaitan dengan warna background, teks, dan border.
-  * Menyesuaikan elemen seperti card, heading, paragraf, dan tombol agar terlihat baik di dark mode.
+✅ **Visual Enhancement:**
 
-✅ **Penyesuaian Visual:**
+* Transisi warna halus antar mode dengan `transition-colors duration-300`.
+* Menghindari `bg-white` statis dengan mengganti menggunakan `dark:bg-*`.
+* Tag warna menyesuaikan agar tidak terlalu terang di dark mode.
 
-* Semua warna terang seperti `bg-white`, `text-gray-900`, `text-gray-700`, dan `text-gray-500` diganti/dipasangkan dengan alternatif dark mode (`dark:bg-gray-900`, `dark:text-gray-100`, dll).
-* Border diganti dengan `border-gray-200` dan `dark:border-gray-700` agar tetap kontras.
-* Teks info seperti bio, email, dan lokasi diberi warna netral yang bisa terlihat pada kedua mode.
+✅ **Konsistensi Desain:**
 
-✅ **Tidak Menambahkan Tombol Dark Mode Manual**:
+* Menyatu dengan desain `Navbar` dan `Footer`.
 
-* Mode gelap diaktifkan otomatis mengikuti preferensi sistem pengguna (`media prefers-color-scheme: dark`).
+### 🔹 `Proyek.jsx`
 
+✅ **Dark Mode Support:**
+
+* Background diganti dengan `bg-gray-50 dark:bg-gray-900`.
+* Semua teks memiliki `dark:text-*` agar terbaca di mode malam.
+* Kartu proyek pakai `dark:bg-gray-800` dan `dark:shadow-md`.
+
+✅ **Visual Enhancement:**
+
+* Tetap mempertahankan nuansa bersih di siang hari, dan dalam di malam hari.
+
+### 🔹 `Detail-Proyek.jsx`
+
+✅ **Dark Mode Support:**
+
+* Section dan teks diberi `dark:bg-gray-900`, `dark:text-gray-100`, dll.
+* Tombol kembali diberi `dark:text-blue-400` agar tetap terlihat di dark mode.
+
+✅ **Visual Fix:**
+
+* Border dan teks dijaga kontrasnya di kedua mode.
+
+### 🔹 `Pendidikan.jsx`
+
+✅ **Dark Mode Support:**
+
+* Latar belakang diperbaiki dengan gradient `dark:from-gray-900 dark:to-gray-800`.
+* Komponen semi-transparan (`bg-white bg-opacity-60`) disesuaikan: `dark:bg-gray-800 dark:bg-opacity-70`.
+
+✅ **Modal Dark Mode:**
+
+* Modal diberi latar `dark:bg-gray-900`, ikon dengan `dark:text-gray-200`.
+* Tombol navigasi carousel mendukung dark mode penuh.
+
+✅ **Timeline UI:**
+
+* Garis vertikal timeline diberi gradient `dark:from-indigo-600 dark:to-purple-700`.
+* Dot penanda di tengah timeline diganti `dark:bg-gray-200`.
+
+✅ **Aksesibilitas Teks:**
+
+* Semua teks memiliki `dark:text-gray-100`, `dark:text-gray-300`, dll agar tetap terbaca di mode malam.
+
+
+> 🔧 **Catatan Teknis:**
+
+* Tidak ada toggle dark mode manual, UI otomatis mengikuti preferensi sistem (CSS `prefers-color-scheme`).
+* Semua perubahan menggunakan utility class TailwindCSS `dark:` dan transisi visual untuk mode ganda.
 ---
 
 ## 🧩 Tech Stack

@@ -19,7 +19,7 @@ export default function DetailProyek() {
 
   if (!project) {
     return (
-      <div className="p-8 text-center text-gray-600">
+      <div className="p-8 text-center text-gray-600 dark:text-gray-400">
         Proyek tidak ditemukan.
       </div>
     );
@@ -30,25 +30,33 @@ export default function DetailProyek() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-3xl mx-auto px-4 py-12"
+      className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
     >
-      <button
-        onClick={() => navigate(-1)}
-        className="mb-6 inline-flex items-center text-blue-600 hover:underline"
-      >
-        ← Kembali
-      </button>
+      <div className="max-w-3xl mx-auto px-4 py-12">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          ← Kembali
+        </button>
 
-      <img
-        src={project.imageUrl}
-        alt={project.title}
-        className="w-full h-64 object-cover rounded-xl mb-6"
-      />
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          className="w-full h-64 object-cover rounded-xl mb-6 shadow-md"
+        />
 
-      <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-      <p className="text-gray-700 mb-4">{project.description}</p>
-      <div className="text-gray-800 leading-relaxed whitespace-pre-line">
-        {project.details}
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          {project.title}
+        </h1>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          {project.description}
+        </p>
+
+        <div className="text-gray-800 dark:text-gray-200 leading-relaxed whitespace-pre-line">
+          {project.details}
+        </div>
       </div>
     </motion.section>
   );

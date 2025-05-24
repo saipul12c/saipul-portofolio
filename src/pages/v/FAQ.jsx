@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import faqData from '../../data/FAQ.json';
-import { initTheme, toggleTheme } from '../../utils/theme';
 
 const tagColors = [
-  { bg: 'bg-red-100 dark:bg-red-900', text: 'text-red-800 dark:text-red-200' },
-  { bg: 'bg-blue-100 dark:bg-blue-900', text: 'text-blue-800 dark:text-blue-200' },
-  { bg: 'bg-green-100 dark:bg-green-900', text: 'text-green-800 dark:text-green-200' },
-  { bg: 'bg-yellow-100 dark:bg-yellow-900', text: 'text-yellow-800 dark:text-yellow-200' },
-  { bg: 'bg-purple-100 dark:bg-purple-900', text: 'text-purple-800 dark:text-purple-200' }
+  { bg: 'bg-red-200 dark:bg-red-700', text: 'text-red-800 dark:text-red-100' },
+  { bg: 'bg-blue-200 dark:bg-blue-700', text: 'text-blue-800 dark:text-blue-100' },
+  { bg: 'bg-green-200 dark:bg-green-700', text: 'text-green-800 dark:text-green-100' },
+  { bg: 'bg-yellow-200 dark:bg-yellow-600', text: 'text-yellow-800 dark:text-yellow-100' },
+  { bg: 'bg-purple-200 dark:bg-purple-700', text: 'text-purple-800 dark:text-purple-100' },
 ];
 
 const FAQ = () => {
@@ -19,7 +18,6 @@ const FAQ = () => {
   const [openIds, setOpenIds] = useState([]);
 
   useEffect(() => {
-    initTheme();
     setFilteredTopics(faqData.faq.topics);
   }, []);
 
@@ -45,105 +43,96 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
-      <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8">
-        <h1 className="text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 mb-4 sm:mb-0">
-          FAQ
-        </h1>
-        <div className="flex items-center space-x-4 w-full sm:w-auto">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" size={16} />
+    <div className="min-h-screen w-full px-4 sm:px-6 lg:px-8 py-12 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-10">
+          <h1 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-6">
+            FAQ
+          </h1>
+          <div className="max-w-md mx-auto relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500" size={18} />
             <input
               type="text"
               placeholder="Cari pertanyaan atau jawaban..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="p-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          >
-            {document.documentElement.classList.contains('dark') ? (
-              <Sun size={20} className="text-yellow-400" />
-            ) : (
-              <Moon size={20} className="text-gray-700" />
-            )}
-          </button>
         </div>
-      </header>
 
-      {filteredTopics.length > 0 ? (
-        filteredTopics.map(topic => (
-          <section key={topic.topicId} className="mb-10">
-            <h2 className="text-2xl font-semibold text-neutral-800 dark:text-neutral-100 mb-4 flex items-center">
-              {topic.name}
-            </h2>
-            <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-              {topic.description}
-            </p>
-            <motion.div layout className="space-y-4">
-              {topic.items.map(item => {
-                const isOpen = openIds.includes(item.id);
-                return (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="bg-white dark:bg-neutral-800 rounded-2xl shadow-md p-6 border border-neutral-200 dark:border-neutral-700"
-                  >
-                    <div
-                      className="flex justify-between items-start cursor-pointer"
-                      onClick={() => toggleOpen(item.id)}
+        {filteredTopics.length > 0 ? (
+          filteredTopics.map(topic => (
+            <section key={topic.topicId} className="mb-12">
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                {topic.name}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                {topic.description}
+              </p>
+              <motion.div layout className="space-y-4">
+                {topic.items.map(item => {
+                  const isOpen = openIds.includes(item.id);
+                  return (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 border border-gray-200 dark:border-gray-700"
                     >
-                      <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
-                        {item.question}
-                      </h3>
-                      <span className="ml-4 text-neutral-500 dark:text-neutral-400">
-                        {isOpen ? <FiMinus size={18} /> : <FiPlus size={18} />}
-                      </span>
-                    </div>
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          key="content"
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-4"
-                        >
-                          <p className="text-neutral-700 dark:text-neutral-300 mb-2">
-                            {item.answer}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {item.tags.map((tag, idx) => {
-                              const color = tagColors[idx % tagColors.length];
-                              return (
-                                <span
-                                  key={idx}
-                                  className={`${color.bg} ${color.text} px-3 py-1 text-xs font-medium rounded-full`}
-                                >
-                                  {tag}
-                                </span>
-                              );
-                            })}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </section>
-        ))
-      ) : (
-        <p className="text-neutral-600 dark:text-neutral-400">Tidak ada FAQ yang sesuai.</p>
-      )}
+                      <div
+                        className="flex justify-between items-start cursor-pointer"
+                        onClick={() => toggleOpen(item.id)}
+                      >
+                        <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                          {item.question}
+                        </h3>
+                        <span className="ml-4 text-gray-500 dark:text-gray-400">
+                          {isOpen ? <FiMinus size={18} /> : <FiPlus size={18} />}
+                        </span>
+                      </div>
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            key="content"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4"
+                          >
+                            <p className="text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">
+                              {item.answer}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-2">
+                              {item.tags.map((tag, idx) => {
+                                const color = tagColors[idx % tagColors.length];
+                                return (
+                                  <span
+                                    key={idx}
+                                    className={`${color.bg} ${color.text} px-3 py-1 text-xs font-medium rounded-full`}
+                                  >
+                                    {tag}
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </section>
+          ))
+        ) : (
+          <p className="text-center text-gray-600 dark:text-gray-400">
+            Tidak ada FAQ yang sesuai.
+          </p>
+        )}
+      </div>
     </div>
   );
 };
