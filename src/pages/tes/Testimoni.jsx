@@ -1,35 +1,10 @@
-// src/pages/tes/Testimoni.jsx
 import React, { useState, useMemo } from "react";
 import { Card, CardContent } from "../../components/ui/card";
 import { Input } from "../../components/ui/input";
 import { Pagination } from "../../components/ui/pagination";
-import { Star, StarHalf, StarOff, Search } from "lucide-react";
+import { Star, StarHalf, StarOff, Search, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-
-const testimonialsData = [
-  {
-    name: "Andi Pratama",
-    position: "Product Manager at XYZ",
-    avatar: "/avatars/andi.jpg",
-    rating: 5,
-    message: "Bekerja dengan Syaiful sangat luar biasa! Dedikasi dan profesionalismenya tak tertandingi.",
-  },
-  {
-    name: "Siti Nurhaliza",
-    position: "UI/UX Designer",
-    avatar: "/avatars/siti.jpg",
-    rating: 4.5,
-    message: "Syaiful punya kemampuan leadership yang keren. Sangat menginspirasi tim.",
-  },
-  {
-    name: "Joko Widodo",
-    position: "CEO at Alpha Inc.",
-    avatar: "/avatars/joko.jpg",
-    rating: 5,
-    message: "Selalu mengutamakan kualitas dan deadline. Terpercaya!",
-  },
-  // Tambahkan lebih banyak testimoni sesuai kebutuhan
-];
+import testimonialsData from "../../data/testimonials.json";
 
 const PER_PAGE = 3;
 
@@ -39,9 +14,7 @@ const Testimoni = () => {
 
   const filtered = useMemo(() => {
     return testimonialsData.filter((t) =>
-      `${t.name} ${t.position}`
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
+      `${t.name} ${t.position} ${t.company}`.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [searchTerm]);
 
@@ -61,26 +34,11 @@ const Testimoni = () => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       if (rating >= i) {
-        stars.push(
-          <Star
-            key={i}
-            className="w-4 h-4 text-yellow-500 fill-yellow-400"
-          />
-        );
+        stars.push(<Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-400" />);
       } else if (rating >= i - 0.5) {
-        stars.push(
-          <StarHalf
-            key={i}
-            className="w-4 h-4 text-yellow-500 fill-yellow-400"
-          />
-        );
+        stars.push(<StarHalf key={i} className="w-4 h-4 text-yellow-500 fill-yellow-400" />);
       } else {
-        stars.push(
-          <StarOff
-            key={i}
-            className="w-4 h-4 text-gray-300"
-          />
-        );
+        stars.push(<StarOff key={i} className="w-4 h-4 text-gray-300" />);
       }
     }
     return stars;
@@ -108,7 +66,7 @@ const Testimoni = () => {
 
       <div className="relative max-w-md mx-auto mb-8">
         <Input
-          placeholder="Cari nama atau posisi..."
+          placeholder="Cari nama, posisi, atau perusahaan..."
           value={searchTerm}
           onChange={(e) => {
             setPage(1);
@@ -120,9 +78,9 @@ const Testimoni = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {paginated.map((t, idx) => (
+        {paginated.map((t) => (
           <motion.div
-            key={idx}
+            key={t.id}
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 200 }}
           >
@@ -139,12 +97,28 @@ const Testimoni = () => {
                       {t.name}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {t.position}
+                      {t.position} <span className="text-xs text-gray-400">@{t.company}</span>
                     </p>
+                    {t.linkedin && (
+                      <a
+                        href={t.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-xs text-blue-500 hover:underline mt-1"
+                      >
+                        Lihat Profil
+                        <ExternalLink className="w-3 h-3 ml-1" />
+                      </a>
+                    )}
                   </div>
                 </div>
                 <p className="text-gray-700 dark:text-gray-200">{t.message}</p>
-                <div className="flex">{renderStars(t.rating)}</div>
+                <div className="flex justify-between items-center">
+                  <div className="flex">{renderStars(t.rating)}</div>
+                  {t.date && (
+                    <span className="text-xs text-gray-400 dark:text-gray-500">{new Date(t.date).toLocaleDateString()}</span>
+                  )}
+                </div>
               </CardContent>
             </Card>
           </motion.div>

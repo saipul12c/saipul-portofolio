@@ -20,6 +20,7 @@ const Komitmen = () => {
 
   const categories = ['Semua', ...new Set(commitments.map(c => c.category))];
 
+  // Filter & sortir data
   const filtered = commitments
     .filter(c =>
       (categoryFilter === 'Semua' || c.category === categoryFilter) &&
@@ -64,30 +65,42 @@ const Komitmen = () => {
           layout
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {filtered.map(c => (
+          {filtered.map((c, index) => (
             <motion.div
               key={c.id}
               whileHover={{ y: -5 }}
               className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 border border-gray-200 dark:border-gray-700 transition"
             >
               <div className="flex items-center justify-between mb-3">
+                {/* Nomor urut berubah saat filter kategori */}
                 <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
-                  #{c.id}
+                  #{index + 1}
                 </span>
-                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+
+                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
                   {c.priority.label}
+                  {/* Label tambahan: Prioritas Tinggi */}
+                  {c.priority.score >= 80 && (
+                    <span className="inline-block bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs font-bold px-2 py-0.5 rounded-full uppercase select-none">
+                      Prioritas Tinggi
+                    </span>
+                  )}
                 </span>
               </div>
+
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
                 {c.category}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 {c.statement}
               </p>
-              <span className={`inline-block px-3 py-1 text-xs font-medium uppercase rounded-full
-                ${c.status === 'Aktif' ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
-                  c.status === 'Berjalan' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200' :
-                  'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200'}`.trim()}
+              <span
+                className={`inline-block px-3 py-1 text-xs font-medium uppercase rounded-full
+                ${c.status === 'Aktif'
+                    ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
+                    : c.status === 'Berjalan'
+                      ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
+                      : 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200'}`.trim()}
               >
                 {c.status}
               </span>

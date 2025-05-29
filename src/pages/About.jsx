@@ -1,8 +1,32 @@
 // src/pages/About.jsx
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FiCheckCircle, FiLayers, FiCoffee, FiSmile } from 'react-icons/fi';
+import { Star, StarHalf, StarOff } from 'lucide-react';
+import testimonials from '../data/testimonials.json';
 
 export default function About() {
+  const previewTestimonials = testimonials.slice(0, 2);
+
+  const avgRating = useMemo(() => {
+    if (testimonials.length === 0) return 0;
+    const total = testimonials.reduce((sum, t) => sum + t.rating, 0);
+    return total / testimonials.length;
+  }, []);
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (rating >= i) {
+        stars.push(<Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-400" />);
+      } else if (rating >= i - 0.5) {
+        stars.push(<StarHalf key={i} className="w-4 h-4 text-yellow-500 fill-yellow-400" />);
+      } else {
+        stars.push(<StarOff key={i} className="w-4 h-4 text-gray-300" />);
+      }
+    }
+    return stars;
+  };
+
   return (
     <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
       
@@ -85,20 +109,38 @@ export default function About() {
         </div>
       </section>
 
-      {/* Testimonial Singkat */}
+      {/* Testimoni Dinamis */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10">
           Apa Kata Klien?
         </h2>
+
+        <div className="text-center mb-6 text-sm text-yellow-600 dark:text-yellow-400">
+          <span className="font-medium">Rata-rata rating:</span>{' '}
+          <span className="font-semibold">{avgRating.toFixed(1)}</span>{' '}
+          <span className="inline-flex">{renderStars(avgRating)}</span>
+        </div>
+
         <div className="max-w-3xl mx-auto space-y-6">
-          <blockquote className="border-l-4 border-indigo-600 pl-4 italic text-gray-600 dark:text-gray-300">
-            “Kerja sama dengan Syaiful super lancar! Website kami jadi lebih interaktif, dan komentar ‘keren’ dari tim terus berdatangan.”  
-            <footer className="mt-2 text-sm font-semibold">— Budi, CEO StartupXYZ</footer>
-          </blockquote>
-          <blockquote className="border-l-4 border-indigo-600 pl-4 italic text-gray-600 dark:text-gray-300">
-            “Desainnya simpel tapi elegan. Yang paling kocak, loading indicator kustomnya pakai animasi kopi tumpah!”  
-            <footer className="mt-2 text-sm font-semibold">— Rina, Project Manager Kreatif</footer>
-          </blockquote>
+          {previewTestimonials.map((t, idx) => (
+            <blockquote
+              key={idx}
+              className="border-l-4 border-indigo-600 pl-4 italic text-gray-600 dark:text-gray-300"
+            >
+              “{t.message}”
+              <footer className="mt-3 text-sm flex items-center gap-3">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-8 h-8 rounded-full object-cover border border-indigo-300 dark:border-gray-600"
+                />
+                <div>
+                  <div className="font-semibold">{t.name}, {t.position}</div>
+                  <div className="flex">{renderStars(t.rating)}</div>
+                </div>
+              </footer>
+            </blockquote>
+          ))}
         </div>
       </section>
 

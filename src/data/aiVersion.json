@@ -1,36 +1,73 @@
-{
-  "version": "0.1.0",
-  "updatedAt": "2025-05-18T00:00:00.000Z",
-  "releaseDate": "2025-05-18T00:00:00.000Z",
-  "author": "Tim Pengembang Saipul AI",
-  "notes": {
-    "newFeatures": [
-      "Penambahan konteks multi-bahasa untuk pemahaman chat lebih luas",
-      "Integrasi fallback saat port 7000 mati dengan pesan humoris",
-      "Dukungan dark/light mode otomatis via theme.js"
-    ],
-    "improvements": [
-      "Optimasi kecepatan respons model hingga 20%",
-      "Peningkatan akurasi deteksi intent user",
-      "Stabilitas koneksi WebSocket diperkuat"
-    ],
-    "bugFixes": [
-      "Memperbaiki issue input chat yang tidak ter-disable saat offline",
-      "Menangani race condition saat inisialisasi tema",
-      "Perbaikan memory leak pada event listener klik di luar widget"
+[
+  {
+    "version": "0.2.0",
+    "updatedAt": "2025-05-24T00:00:00.000Z",
+    "releaseDate": "2025-05-24T00:00:00.000Z",
+    "author": "Tim Pengembang Saipul AI",
+    "notes": {
+      "newFeatures": [
+        "Sistem validasi token API baru berbasis JWT",
+        "Audit log untuk setiap request masuk pengguna",
+        "Enkripsi lokal untuk penyimpanan sementara chat"
+      ],
+      "improvements": [
+        "Peningkatan performa enkripsi hingga 35%",
+        "Struktur data pengguna lebih efisien dan modular",
+        "Proses parsing JSON lebih cepat dan aman terhadap injection"
+      ],
+      "bugFixes": [
+        "Perbaikan sistem fallback jika header otorisasi hilang",
+        "Bug parsing log kosong saat tidak ada aktivitas diperbaiki"
+      ]
+    },
+    "compatibility": {
+      "minClientVersion": "2.1.0",
+      "testedOn": [
+        "Chrome 113+",
+        "Firefox 111+",
+        "Safari 16.5+",
+        "Edge 113+"
+      ]
+    },
+    "knownIssues": [
+      "Sesi login kadang logout otomatis di mode private browser",
+      "Beberapa metadata audit tidak muncul saat koneksi lambat"
     ]
   },
-  "compatibility": {
-    "minClientVersion": "2.0.0",
-    "testedOn": [
-      "Chrome 112+",
-      "Firefox 110+",
-      "Safari 16+",
-      "Edge 112+"
+  {
+    "version": "0.1.0",
+    "updatedAt": "2025-05-18T00:00:00.000Z",
+    "releaseDate": "2025-05-18T00:00:00.000Z",
+    "author": "Tim Pengembang Saipul AI",
+    "notes": {
+      "newFeatures": [
+        "Penambahan konteks multi-bahasa untuk pemahaman chat lebih luas",
+        "Integrasi fallback saat port 7000 mati dengan pesan humoris",
+        "Dukungan dark/light mode otomatis via theme.js"
+      ],
+      "improvements": [
+        "Optimasi kecepatan respons model hingga 20%",
+        "Peningkatan akurasi deteksi intent user",
+        "Stabilitas koneksi WebSocket diperkuat"
+      ],
+      "bugFixes": [
+        "Memperbaiki issue input chat yang tidak ter-disable saat offline",
+        "Menangani race condition saat inisialisasi tema",
+        "Perbaikan memory leak pada event listener klik di luar widget"
+      ]
+    },
+    "compatibility": {
+      "minClientVersion": "2.0.0",
+      "testedOn": [
+        "Chrome 112+",
+        "Firefox 110+",
+        "Safari 16+",
+        "Edge 112+"
+      ]
+    },
+    "knownIssues": [
+      "Kadang notifikasi status offline tidak ter-update segera pada jaringan sangat lambat",
+      "Animasi toggle button di iOS Safari sedikit lag"
     ]
-  },
-  "knownIssues": [
-    "Kadang notifikasi status offline tidak ter-update segera pada jaringan sangat lambat",
-    "Animasi toggle button di iOS Safari sedikit lag"
-  ]
-}
+  }
+]
