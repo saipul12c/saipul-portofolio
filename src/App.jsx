@@ -132,7 +132,7 @@ function AppContent() {
 
           {/* Under Construction with unlock callback */}
           <Route
-            path="/pengembangan"
+            path="/Pengembangan"
             element={
               <PengembanganWithUnlock duration={LOCK_DURATION} />
             }
@@ -143,7 +143,7 @@ function AppContent() {
             path="/proyek"
             element={
               <GuardedRoute
-                fallbackPath="/pengembangan"
+                fallbackPath="/Pengembangan"
                 path="/proyek"
               >
                 <Proyek />
@@ -154,7 +154,7 @@ function AppContent() {
             path="/proyek/:slug"
             element={
               <GuardedRoute
-                fallbackPath="/pengembangan"
+                fallbackPath="/Pengembangan"
                 path="/proyek/:slug"
               >
                 <DetailProyek />
@@ -165,7 +165,7 @@ function AppContent() {
             path="/pendidikan"
             element={
               <GuardedRoute
-                fallbackPath="/pengembangan"
+                fallbackPath="/Pengembangan"
                 path="/pendidikan"
               >
                 <Pendidikan />
@@ -176,7 +176,7 @@ function AppContent() {
             path="/detail-proyek"
             element={
               <GuardedRoute
-                fallbackPath="/pengembangan"
+                fallbackPath="/Pengembangan"
                 path="/detail-proyek"
               >
                 <DetailProyek />
@@ -187,7 +187,7 @@ function AppContent() {
             path="/testimoni"
             element={
               <GuardedRoute
-                fallbackPath="/pengembangan"
+                fallbackPath="/Pengembangan"
                 path="/testimoni"
               >
                 <Testimoni />

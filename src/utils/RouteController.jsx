@@ -110,7 +110,7 @@ export function RouteControllerProvider({ children }) {
 export function GuardedRoute({
   path,
   children,
-  fallbackPath = "/pengembangan",
+  fallbackPath = "/Pengembangan",
   requiredKey
 }) {
   const { lockedRoutes, allowKeyedRoutes } = useRouteController();
