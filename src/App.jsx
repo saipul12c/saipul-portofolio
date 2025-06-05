@@ -27,13 +27,15 @@ import FAQ          from './pages/v/FAQ';
 import Komitmen     from './pages/v/Komitmen';
 import AiVersion    from './pages/v/AiVersion';
 
+import Album        from './pages/album/gallery'
+import MemoryDetail from './pages/album/v/MemoryDetail';
 import Proyek       from './pages/proyek/Proyek';
 import DetailProyek from './pages/proyek/A/detail-proyek';
 
 import Pendidikan   from './pages/p/pendidikan';
 import Testimoni    from './pages/tes/Testimoni';
 
-import Pengembangan from './pages/alih/Pengembangan';
+import Pengembangan from './pages/alih/Perbaiki';
 import { initTheme } from './utils/theme';
 
 import {
@@ -123,6 +125,8 @@ function AppContent() {
           <Route path="/faq"           element={<FAQ />} />
           <Route path="/komitmen"      element={<Komitmen />} />
           <Route path="/ai-version"    element={<AiVersion />} />
+          <Route path="/album"         element={<Album />} />
+          <Route path="/kenangan/:slug"         element={<MemoryDetail />} />
 
           {/* Route Control (secret) */}
           <Route

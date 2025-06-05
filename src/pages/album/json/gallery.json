@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Liburan ke Bali",
+    "image": "/images/bali.jpg",
+    "description": "Momen indah saat liburan ke Bali bersama keluarga.",
+    "date": "2023-06-20",
+    "location": "Pantai Kuta, Bali",
+    "category": "Liburan",
+    "tags": ["keluarga", "pantai", "liburan"],
+    "people": ["Ayah", "Ibu", "Dina"],
+    "emotions": ["senang", "tenang"],
+    "weather": "Cerah",
+    "notes": "Pertama kali melihat matahari terbenam di tepi pantai.",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "title": "Wisuda Sarjana",
+    "image": "/images/wisuda.jpg",
+    "description": "Hari bersejarah saat aku lulus dari universitas.",
+    "date": "2022-11-05",
+    "location": "Universitas Indonesia, Depok",
+    "category": "Pendidikan",
+    "tags": ["wisuda", "pendidikan", "kampus"],
+    "people": ["Teman kampus", "Dosen wali"],
+    "emotions": ["bangga", "haru"],
+    "weather": "Mendung",
+    "notes": "Banyak teman menangis haru setelah acara selesai.",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "title": "Ulang Tahun Ke-25",
+    "image": "/images/ultah.jpg",
+    "description": "Pesta ulang tahun sederhana namun berkesan.",
+    "date": "2023-03-12",
+    "location": "Rumah sendiri",
+    "category": "Pribadi",
+    "tags": ["ulang tahun", "teman", "bahagia"],
+    "people": ["Rina", "Andre", "Fajar"],
+    "emotions": ["gembira", "tersentuh"],
+    "weather": "Hujan gerimis",
+    "notes": "Dapat kejutan kue ulang tahun dari sahabat.",
+    "rating": 4
+  },
+  {
+    "id": 4,
+    "title": "Pendakian Gunung Gede",
+    "image": "/images/gunung.jpg",
+    "description": "Pendakian pertama yang sangat berkesan.",
+    "date": "2023-09-01",
+    "location": "Gunung Gede, Jawa Barat",
+    "category": "Petualangan",
+    "tags": ["gunung", "teman", "outdoor"],
+    "people": ["Reza", "Putri", "Tono"],
+    "emotions": ["lelah", "bahagia"],
+    "weather": "Kabut tebal",
+    "notes": "Melihat matahari terbit di puncak untuk pertama kalinya.",
+    "rating": 5
+  }
+]

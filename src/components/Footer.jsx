@@ -14,7 +14,7 @@ export default function Footer() {
   const quickLinks = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About' },
-    { to: '/skills', label: 'Skills' },
+    { to: '/album', label: 'Album Saya', dev: true },
     { to: '/sertifikat', label: 'Sertifikat' },
     { to: '/blog', label: 'Blog' },
     { to: '/kontak', label: 'Hubungi Admin' },
