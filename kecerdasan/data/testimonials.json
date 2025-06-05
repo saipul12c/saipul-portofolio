@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Andi Pratama",
+    "position": "Product Manager",
+    "company": "XYZ Corp",
+    "avatar": "/avatars/andi.jpg",
+    "rating": 5,
+    "message": "Bekerja dengan Syaiful sangat luar biasa! Dedikasi dan profesionalismenya tak tertandingi.",
+    "date": "2024-11-10",
+    "linkedin": "https://linkedin.com/in/andipratama"
+  },
+  {
+    "id": 2,
+    "name": "Siti Nurhaliza",
+    "position": "UI/UX Designer",
+    "company": "CreativeLabs",
+    "avatar": "/avatars/siti.jpg",
+    "rating": 4.5,
+    "message": "Syaiful punya kemampuan leadership yang keren. Sangat menginspirasi tim.",
+    "date": "2024-09-15",
+    "linkedin": "https://linkedin.com/in/sitinurhaliza"
+  },
+  {
+    "id": 3,
+    "name": "Joko Widodo",
+    "position": "CEO",
+    "company": "Alpha Inc.",
+    "avatar": "/avatars/joko.jpg",
+    "rating": 5,
+    "message": "Selalu mengutamakan kualitas dan deadline. Terpercaya!",
+    "date": "2024-10-01",
+    "linkedin": "https://linkedin.com/in/jokowidodo"
+  },
+  {
+    "id": 4,
+    "name": "Rina Agustina",
+    "position": "Frontend Engineer",
+    "company": "TechNova",
+    "avatar": "/avatars/rina.jpg",
+    "rating": 4,
+    "message": "Syaiful cepat tanggap dan punya inisiatif tinggi. Sangat membantu dalam proyek frontend besar.",
+    "date": "2025-01-20",
+    "linkedin": "https://linkedin.com/in/rinaagustina"
+  },
+  {
+    "id": 5,
+    "name": "Budi Santoso",
+    "position": "Backend Developer",
+    "company": "CodeVerse",
+    "avatar": "/avatars/budi.jpg",
+    "rating": 4.8,
+    "message": "Kolaborasi dengan Syaiful sangat menyenangkan. Komunikatif dan tahu apa yang harus dilakukan.",
+    "date": "2025-03-10",
+    "linkedin": "https://linkedin.com/in/budisantoso"
+  },
+  {
+    "id": 6,
+    "name": "Dewi Kartika",
+    "position": "Scrum Master",
+    "company": "AgileWorks",
+    "avatar": "/avatars/dewi.jpg",
+    "rating": 5,
+    "message": "Ia memiliki pemahaman mendalam tentang agile dan selalu berpikir ke depan.",
+    "date": "2025-02-05",
+    "linkedin": "https://linkedin.com/in/dewikartika"
+  }
+]

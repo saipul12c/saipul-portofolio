@@ -1,0 +1,109 @@
+{
+  "entities": {
+    "ai": {
+      "keywords": [
+        "ai",
+        "kecerdasan buatan",
+        "otak mesin"
+      ],
+      "info": "AI adalah singkatan dari Artificial Intelligence atau kecerdasan buatan.",
+      "examples": [
+        "Apa itu AI?",
+        "Bagaimana cara kerja AI?"
+      ],
+      "relatedTopics": [
+        "machine learning",
+        "neural networks"
+      ]
+    },
+    "saipul": {
+      "keywords": [
+        "saipul",
+        "bot ini",
+        "kamu siapa",
+        "siapa"
+      ],
+      "info": "Saya Saipul, AI lokal yang sedang belajar dari percakapanmu.",
+      "examples": [
+        "Kamu siapa?",
+        "Namamu siapa?"
+      ]
+    },
+    "cuaca": {
+      "keywords": [
+        "cuaca",
+        "hujan",
+        "panas",
+        "cerah"
+      ],
+      "info": "Maaf, saya tidak terhubung ke layanan cuaca saat ini.",
+      "examples": [
+        "Cuaca hari ini bagaimana?"
+      ]
+    },
+    "waktu": {
+      "keywords": [
+        "jam",
+        "waktu",
+        "sekarang",
+        "pukul",
+        "nama"
+      ],
+      "dynamic": "waktu",
+      "examples": [
+        "Jam berapa sekarang?",
+        "Waktu saat ini?"
+      ]
+    },
+    "tanggal": {
+      "keywords": [
+        "tanggal",
+        "hari ini"
+      ],
+      "dynamic": "tanggal",
+      "examples": [
+        "Hari ini tanggal berapa?"
+      ]
+    },
+    "sapaan": {
+      "keywords": [
+        "hallo",
+        "adalah",
+        "haloo"
+      ],
+      "info": "Saya belum tahu apa itu \"hallo\". Boleh kamu jelaskan?",
+      "examples": [
+        "hallo"
+      ],
+      "learned": true,
+      "pendingConfirmation": true
+    },
+    "saya": {
+      "keywords": [
+        "saya"
+      ],
+      "info": "Saya belum tahu apa itu \"saya\". Boleh kamu jelaskan?",
+      "examples": [
+        "nama saya adalah udin"
+      ],
+      "learned": true,
+      "pendingConfirmation": true
+    },
+    "udin": {
+      "keywords": [
+        "udin"
+      ],
+      "info": "Saya belum tahu apa itu \"udin\". Boleh kamu jelaskan?",
+      "examples": [
+        "nama saya adalah udin"
+      ],
+      "learned": true,
+      "pendingConfirmation": true
+    }
+  },
+  "fallback": [
+    "Maaf, saya belum mengerti maksudnya.",
+    "Coba jelaskan dengan cara lain.",
+    "Topik itu masih saya pelajari."
+  ]
+}

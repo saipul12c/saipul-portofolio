@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Sistem Informasi Akademik Terintegrasi",
+    "overview": "Aplikasi web untuk mengelola proses akademik di perguruan tinggi secara digital dan terpusat.",
+    "background": "Pengelolaan akademik secara manual sering kali menyebabkan kesalahan input, keterlambatan pelaporan, dan kurangnya transparansi antara dosen dan mahasiswa.",
+    "objectives": "Menyediakan platform digital yang efisien dan transparan untuk pengelolaan nilai, presensi, dan jadwal kuliah.",
+    "technologies": ["PHP", "Laravel", "MySQL", "Bootstrap", "JavaScript"],
+    "features": [
+      "Manajemen data mahasiswa dan dosen",
+      "Input dan rekap nilai otomatis",
+      "Monitoring presensi real-time",
+      "Pengelolaan jadwal kuliah"
+    ],
+    "benefits": "Meningkatkan efisiensi pengelolaan akademik dan memudahkan akses informasi bagi seluruh civitas akademika.",
+    "strengths": "Antarmuka pengguna yang mudah digunakan, sistem notifikasi, dan role-based access control.",
+    "limitations": "Belum terintegrasi langsung dengan sistem keuangan dan perpustakaan kampus.",
+    "targetUsers": "Mahasiswa, dosen, dan staf akademik universitas.",
+    "developmentPeriod": "September 2022 - Desember 2022",
+    "teamMembers": ["Andi", "Budi", "Citra"],
+    "projectStage": "Selesai dan diimplementasikan",
+    "deploymentUrl": "https://siakademik.univdemo.ac.id",
+    "repositoryUrl": "https://github.com/yourrepo/siakademik",
+    "client": "Universitas Demo Raya",
+    "screenshots": ["/images/siakademik1.png", "/images/siakademik2.png"],
+    "testimonials": [
+      {
+        "author": "Dr. Lina Marlina",
+        "role": "Kaprodi TI",
+        "comment": "Sistem ini sangat membantu proses pelaporan akademik dan membuat pekerjaan lebih efisien."
+      }
+    ],
+    "maintenancePlan": "Update berkala setiap semester dan pemantauan performa sistem setiap bulan.",
+    "futurePlans": "Integrasi dengan sistem keuangan dan sistem perpustakaan kampus.",
+    "imageUrl": "/images/siakademik.png"
+  },
+  {
+    "id": 2,
+    "title": "Platform E-Commerce Fashion Modern",
+    "overview": "Situs belanja fashion online dengan katalog dinamis dan sistem checkout terintegrasi.",
+    "background": "Meningkatnya kebutuhan konsumen akan pengalaman belanja daring yang cepat dan mudah dengan banyak pilihan pembayaran.",
+    "objectives": "Membangun platform e-commerce dengan fitur lengkap dan performa tinggi untuk meningkatkan kepuasan pengguna.",
+    "technologies": ["React", "Node.js", "Express", "MongoDB", "Midtrans API"],
+    "features": [
+      "Manajemen produk dan kategori",
+      "Fitur pencarian dan filter produk",
+      "Keranjang belanja dinamis",
+      "Pembayaran otomatis dengan integrasi payment gateway"
+    ],
+    "benefits": "Meningkatkan pengalaman belanja pengguna dengan UI yang responsif dan proses checkout yang mudah.",
+    "strengths": "SEO friendly, mobile responsive, dan skalabilitas tinggi.",
+    "limitations": "Masih terbatas pada kategori fashion, belum tersedia fitur loyalty program atau review pengguna.",
+    "targetUsers": "Pelanggan umum, terutama penggemar fashion daring.",
+    "developmentPeriod": "Juli 2022 - Oktober 2022",
+    "teamMembers": ["Dewi", "Fajar"],
+    "projectStage": "Minimum Viable Product (MVP)",
+    "deploymentUrl": "https://fashionstore.demo.id",
+    "repositoryUrl": "https://github.com/yourrepo/ecommerce-fashion",
+    "client": "Fashionista Online Store",
+    "screenshots": ["/images/ecommerce1.png", "/images/ecommerce2.png"],
+    "testimonials": [
+      {
+        "author": "Sarah Wijaya",
+        "role": "Owner Fashionista",
+        "comment": "Platform ini meningkatkan penjualan kami secara signifikan dalam 3 bulan pertama."
+      }
+    ],
+    "maintenancePlan": "Penambahan fitur loyalitas dan integrasi ekspedisi otomatis dalam roadmap pengembangan.",
+    "futurePlans": "Integrasi sistem tracking pengiriman dan sistem rating produk.",
+    "imageUrl": "/images/ecommerce.png"
+  },
+  {
+    "id": 3,
+    "title": "Blog Pribadi Dinamis Berbasis Markdown",
+    "overview": "Platform blogging statis dengan dukungan Markdown dan performa optimal.",
+    "background": "Banyak penulis teknis atau kreatif membutuhkan platform ringan untuk menulis dan mempublikasikan artikel pribadi dengan tampilan bersih.",
+    "objectives": "Menyediakan sarana menulis yang fleksibel, cepat, dan mudah disesuaikan tanpa sistem manajemen konten yang berat.",
+    "technologies": ["Next.js", "Markdown", "Tailwind CSS", "Vercel"],
+    "features": [
+      "Penulisan artikel dengan sintaks Markdown",
+      "Routing dinamis berdasarkan slug",
+      "Dukungan dark mode",
+      "Optimasi SEO dan kecepatan akses tinggi"
+    ],
+    "benefits": "Cocok untuk pengembang atau penulis yang ingin memiliki blog cepat, ringan, dan terstruktur.",
+    "strengths": "Cepat diakses, minim dependensi, dan mudah di-deploy.",
+    "limitations": "Tidak memiliki dashboard admin GUI untuk mengelola konten secara visual.",
+    "targetUsers": "Developer, penulis konten pribadi, dan blogger independen.",
+    "developmentPeriod": "Mei 2023 - Juni 2023",
+    "teamMembers": ["Rizky (individu)"],
+    "projectStage": "Selesai (personal use)",
+    "deploymentUrl": "https://rizky.dev/blog",
+    "repositoryUrl": "https://github.com/rizkydev/my-blog",
+    "client": "Proyek pribadi",
+    "screenshots": ["/images/blog1.png", "/images/blog2.png"],
+    "testimonials": [],
+    "maintenancePlan": "Deployment otomatis melalui Vercel setiap update di GitHub.",
+    "futurePlans": "Menambahkan sistem komentar dan statistik pengunjung.",
+    "imageUrl": "/images/blog.png"
+  }
+]
